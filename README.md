@@ -1,2 +1,2 @@
-# pwa-with-react
-Criando um site PWA com React, Gatsby, GraphQL e Netlify CMS
+# Pwa with React
+Criando um site PWA com Gatsby, GraphQL e Netlify CMS
