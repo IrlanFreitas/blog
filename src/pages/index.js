@@ -10,7 +10,13 @@ const IndexPage = () => (
 
     <ul>
       <li>
-        <Link to='/about'>About</Link>
+        <a href='/about'>About</a>
+      </li>
+      <li>
+        <Link to='/' activeStyle={{ color:'red' }} >Home</Link>
+      </li>
+      <li>
+        <Link to='/about'>About (gatsby link)</Link>
       </li>
     </ul>
 

@@ -1,3 +1,9 @@
+
+//! Principal arquivo do GatsbyJS
+
+//* Responsável por fazer toda a configuração relacionados aos plugins
+//* e outros dados que são passados para dentro do site
+
 module.exports = {
   siteMetadata: {
     title: `My Blog`,

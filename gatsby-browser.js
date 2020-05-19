@@ -5,3 +5,4 @@
  */
 
 // You can delete this file if you're not using it
+//! Aqui são passados todas as variáveis ou libs que queiramos utilizar no frontend
