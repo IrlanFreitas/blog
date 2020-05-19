@@ -1,0 +1,13 @@
+GatsbyJS
+
+    Framework Open Source baseado em React que auxilia desenvolvedores a criarem sites e apps extremamente rápidos.
+
+GraphQL
+
+Styled Components
+
+Algolia
+
+Netlify
+
+NetlifyCMS
