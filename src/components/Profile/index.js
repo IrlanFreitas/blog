@@ -1,5 +1,6 @@
 import React from "react"
 import { useStaticQuery, StaticQuery, graphql } from "gatsby"
+import Avatar from "../Avatar"
 
 export default function Profile() {
   const {
@@ -20,6 +21,7 @@ export default function Profile() {
 
   return (
     <div className="Profile-wrapper">
+      <Avatar />
       <h1>{title}</h1>
       <h2>{position}</h2>
       <p>{description}</p>
