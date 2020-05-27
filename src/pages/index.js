@@ -1,26 +1,21 @@
 import React from "react"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
+import PostItem from "../components/PostItem"
 import SEO from "../components/seo"
-import { Link } from 'gatsby'
+import { Link } from "gatsby"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Home</h1>
-
-    <ul>
-      <li>
-        <a href='/about'>About</a>
-      </li>
-      <li>
-        <Link to='/' activeStyle={{ color:'red' }} >Home</Link>
-      </li>
-      <li>
-        <Link to='/about'>About (gatsby link)</Link>
-      </li>
-    </ul>
-
-
+    <PostItem
+      slug="/about"
+      background="coral"
+      category="misc"
+      date="30 de Junho de 2020"
+      timeToRead="5"
+      title="Diga não ao Medium"
+      description="Porque você deveria ter sua plataforma"
+    />
   </Layout>
 )
 

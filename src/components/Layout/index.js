@@ -7,18 +7,22 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import Profile from "./Profile"
 
-import "./layout.css"
+import Sidebar from "../Sidebar"
+import MenuBar from "../MenuBar"
+
+import * as S from "./styled"
+//* Css global definido pelo Styled-Components
+import GlobalStyles from "../../styles/global"
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <aside>
-        <Profile />
-      </aside>
-      <main>{children}</main>
-    </>
+    <S.LayoutWrapper>
+      <GlobalStyles />
+      <Sidebar />
+      <S.LayoutMain>{children}</S.LayoutMain>
+      <MenuBar />
+    </S.LayoutWrapper>
   )
 }
 
