@@ -1,4 +1,3 @@
-
 //! Principal arquivo do GatsbyJS
 
 //* Responsável por fazer toda a configuração relacionados aos plugins
@@ -14,6 +13,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
+    //! Necessita sempre ser a primeira configuração para funcionar com o gatsby-remark-images
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `uploads`,
+        path: `${__dirname}/static/assets/img`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -31,7 +38,23 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [],
+        plugins: [
+          {
+            resolve: "gatsby-remark-relative-images",
+            options: {
+              name: "uploads"
+            }
+          },
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWitdh: 960,
+              linkImagesToOriginal: false
+            },
+          },
+          'gatsby-remark-lazy-load',
+          'gatsby-remark-prismjs',
+        ],
       },
     },
     `gatsby-transformer-sharp`,
