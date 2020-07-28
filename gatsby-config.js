@@ -3,9 +3,15 @@
 //* Responsável por fazer toda a configuração relacionados aos plugins
 //* e outros dados que são passados para dentro do site
 
+//! gatsby-source-filesystem  uploads Necessita sempre ser a primeira configuração para funcionar com o gatsby-remark-images
+
+require("dotenv").config()
+
+const queries = require('./src/utils/algolia_queries')
+
 module.exports = {
   siteMetadata: {
-    title: `Irlang`,
+    title: `Irlan`,
     position: `Developer`,
     description: `Aqui escrevo o que não sei para quem importa, eu.`,
     author: `@irlanfreitas`,
@@ -13,7 +19,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
-    //! Necessita sempre ser a primeira configuração para funcionar com o gatsby-remark-images
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -42,23 +47,34 @@ module.exports = {
           {
             resolve: "gatsby-remark-relative-images",
             options: {
-              name: "uploads"
-            }
+              name: "uploads",
+            },
           },
           {
             resolve: "gatsby-remark-images",
             options: {
               maxWitdh: 960,
-              linkImagesToOriginal: false
+              linkImagesToOriginal: false,
             },
           },
-          'gatsby-remark-lazy-load',
-          'gatsby-remark-prismjs',
+          "gatsby-remark-lazy-load",
+          "gatsby-remark-prismjs",
         ],
       },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-algolia-search`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, 
+        queries,
+        chunkSize: 10000,
+        enablePartialUpdates: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

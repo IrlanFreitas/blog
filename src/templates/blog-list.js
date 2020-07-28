@@ -5,41 +5,50 @@ import SEO from "../components/seo"
 import PostItem from "../components/PostItem"
 import Pagination from "../components/Pagination"
 
+import * as S from "../components/ListWrapper/styled"
+
 const BlogList = props => {
   const postList = props.data.allMarkdownRemark.edges
   const { currentPage, numPages } = props.pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
-  const prevPage = currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}`
+  const prevPage = currentPage - 1 === 1 ? "/" : `/page/${currentPage - 1}`
   const nextPage = `/page/${currentPage + 1}`
 
   return (
     <Layout>
       <SEO title="Home" />
-
-      {postList?.map(
-        ({
-          node: {
-            id,
-            frontmatter: { title, description, date, category, background },
-            timeToRead,
-            fields: { slug },
-          },
-        }) => (
-          <PostItem
-            key={id}
-            slug={slug}
-            background={background}
-            category={category}
-            date={date}
-            timeToRead={timeToRead}
-            title={title}
-            description={description}
-          />
-        )
-      )}
-
-      <Pagination isFirst={isFirst} isLast={isLast} currentPage={currentPage} numPages={numPages} prevPage={prevPage} nextPage={nextPage}/>
+      <S.ListWrapper>
+        {postList?.map(
+          ({
+            node: {
+              id,
+              frontmatter: { title, description, date, category, background },
+              timeToRead,
+              fields: { slug },
+            },
+          }) => (
+            <PostItem
+              key={id}
+              slug={slug}
+              background={background}
+              category={category}
+              date={date}
+              timeToRead={timeToRead}
+              title={title}
+              description={description}
+            />
+          )
+        )}
+      </S.ListWrapper>
+      <Pagination
+        isFirst={isFirst}
+        isLast={isLast}
+        currentPage={currentPage}
+        numPages={numPages}
+        prevPage={prevPage}
+        nextPage={nextPage}
+      />
     </Layout>
   )
 }
