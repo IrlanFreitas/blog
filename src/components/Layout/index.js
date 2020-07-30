@@ -15,13 +15,19 @@ import * as S from "./styled"
 //* Css global definido pelo Styled-Components
 import GlobalStyles from "../../styles/global"
 
+import { TransitionPortal } from "gatsby-plugin-transition-link"
+
 const Layout = ({ children }) => {
   return (
     <S.LayoutWrapper>
       <GlobalStyles />
-      <Sidebar />
+      <TransitionPortal level="top">
+        <Sidebar />
+      </TransitionPortal>
       <S.LayoutMain>{children}</S.LayoutMain>
-      <MenuBar />
+      <TransitionPortal level="top">
+        <MenuBar />
+      </TransitionPortal>
     </S.LayoutWrapper>
   )
 }
