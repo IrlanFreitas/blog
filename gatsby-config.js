@@ -5,7 +5,7 @@
 
 //! gatsby-source-filesystem  uploads Necessita sempre ser a primeira configuração para funcionar com o gatsby-remark-images
 
-require("dotenv").config()
+require(`dotenv`).config()
 
 const queries = require('./src/utils/algolia_queries')
 
@@ -14,7 +14,8 @@ module.exports = {
     title: `Irlan`,
     position: `Developer`,
     description: `Aqui escrevo o que não sei para quem importa, eu.`,
-    author: `@irlanfreitas`,
+    author: `@irlanfreitas_`,
+    siteUrl: `https://irlanfreitas.me`
   },
   plugins: [
     `gatsby-plugin-transition-link`,
@@ -46,20 +47,20 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-relative-images",
+            resolve: `gatsby-remark-relative-images`,
             options: {
-              name: "uploads",
+              name: `uploads`,
             },
           },
           {
-            resolve: "gatsby-remark-images",
+            resolve: `gatsby-remark-images`,
             options: {
               maxWitdh: 960,
               linkImagesToOriginal: false,
             },
           },
-          "gatsby-remark-lazy-load",
-          "gatsby-remark-prismjs",
+          `gatsby-remark-lazy-load`,
+          `gatsby-remark-prismjs`,
         ],
       },
     },
@@ -79,17 +80,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Irlan Freitas`,
+        short_name: `Irlan Freitas`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#16202c`,
+        theme_color: `#16202c`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-sitemap`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }
