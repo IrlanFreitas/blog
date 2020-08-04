@@ -5,7 +5,7 @@ import * as S from "./styled"
 
 const Comments = ({url, title}) => {
 
-    const completeURL = `https://irlanfreias.me${url}`
+    const completeURL = `https://irlanfreitas.me${url}`
 
   return (
     <S.CommentsWrapper>
