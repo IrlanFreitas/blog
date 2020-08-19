@@ -1,0 +1,7 @@
+.active {
+  color: var(--highlight) !important;
+}
+
+a:-webkit-any-link:active {
+  color: var(--highlight);
+}

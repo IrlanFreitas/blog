@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react"
 
-import { Home } from "@styled-icons/boxicons-solid/Home"
 import { SearchAlt2 as Search } from "@styled-icons/boxicons-regular/SearchAlt2"
+
 import { UpArrowAlt as Arrow } from "@styled-icons/boxicons-regular/UpArrowAlt"
 import { Bulb as Light } from "@styled-icons/boxicons-regular/Bulb"
 import { Grid } from "@styled-icons/boxicons-solid/Grid"
 import { ListUl as List } from "@styled-icons/boxicons-regular/ListUl"
 
-import getThemeColor from '../../utils/getThemeColor'
+import getThemeColor from "../../utils/getThemeColor"
 
 import * as S from "./styled"
+import './style.css'
 
 export default function MenuBar() {
   const [theme, setTheme] = useState(null)
@@ -28,41 +29,53 @@ export default function MenuBar() {
 
   return (
     <S.MenuBarWrapper>
-      <S.MenuBarGroup>
-        <S.MenuBarLink cover direction="right" bg={getThemeColor()} duration={0.6} to="/" title="Voltar para home">
-          <S.MenuBarItem>
-            <Home />
-          </S.MenuBarItem>
-        </S.MenuBarLink>
-        <S.MenuBarLink cover direction="right" bg={getThemeColor()} duration={0.6} to="/search/" title="Pesquisar">
-          <S.MenuBarItem>
-            <Search />
-          </S.MenuBarItem>
-        </S.MenuBarLink>
-      </S.MenuBarGroup>
-      <S.MenuBarGroup>
-        <S.MenuBarItem
-          title="Mudar o tema"
-          onClick={() => {
-            window.__setPreferredTheme(isDarkMode ? "light" : "dark")
-          }}
-          className={theme}
-        >
-          <Light />
+      <S.MenuBarLink
+        cover
+        direction="top"
+        bg={getThemeColor()}
+        duration={0.6}
+        to="/"
+        activeClass="active"
+      >
+        <S.MenuBarItem>
+          <S.HomeStyled />
+          <div>sobre mim</div>
         </S.MenuBarItem>
-        <S.MenuBarItem
-          title="Mudar visualização"
-          onClick={() => {
-            window.__setPreferredDisplay(isListMode ? "grid" : "list")
-          }}
-          className="display"
-        >
-          {isListMode ? <Grid /> : <List />}
+      </S.MenuBarLink>
+
+      {/* Ter o mesmo comportamento do spotify, depois de outro click vira uma página de pesquisa */}
+      <S.MenuBarLink
+        cover
+        direction="right"
+        bg={getThemeColor()}
+        duration={0.6}
+        to="/projetos"
+      >
+        <S.MenuBarItem>
+          <S.CrownStyled /> <div>projetos</div>
         </S.MenuBarItem>
-        <S.MenuBarItem title="Ir para o topo">
-          <Arrow />
+      </S.MenuBarLink>
+
+      <S.MenuBarLink
+        cover
+        direction="right"
+        bg={getThemeColor()}
+        duration={0.6}
+        to="/blog"
+      >
+        <S.MenuBarItem>
+          <S.FlagStyled /> <div>blog</div>
         </S.MenuBarItem>
-      </S.MenuBarGroup>
+      </S.MenuBarLink>
+
+      <S.MenuBarItem
+        style={{ position: "absolute", right: 0 }}
+        title="Artista que desenhou a página"
+      >
+        <S.Artist href="https://www.linkedin.com/in/flaviakian" target="_blank">
+          /designed by kian
+        </S.Artist>
+      </S.MenuBarItem>
     </S.MenuBarWrapper>
   )
 }

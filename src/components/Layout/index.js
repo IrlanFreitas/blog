@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 
 import Sidebar from "../Sidebar"
 import MenuBar from "../MenuBar"
+import Footer from "../Footer"
 
 import * as S from "./styled"
 //* Css global definido pelo Styled-Components
@@ -21,12 +22,13 @@ const Layout = ({ children }) => {
   return (
     <S.LayoutWrapper>
       <GlobalStyles />
-      <TransitionPortal level="top">
+      {/* <TransitionPortal level="top">
         <Sidebar />
-      </TransitionPortal>
+      </TransitionPortal> */}
       <S.LayoutMain>{children}</S.LayoutMain>
       <TransitionPortal level="top">
-        <MenuBar />
+        {/* <MenuBar /> */}
+        <Footer />
       </TransitionPortal>
     </S.LayoutWrapper>
   )
