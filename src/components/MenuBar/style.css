@@ -1,0 +1,11 @@
+/* .active {
+  color: var(--highlight) !important;
+}
+
+a:-webkit-any-link:active {
+  color: var(--highlight);
+} */
+
+.testeSobreMim div {
+  color: var(--highlight) !important;
+}

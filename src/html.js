@@ -14,7 +14,7 @@ export default function HTML(props) {
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes} className="dark">
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
             (function() {
@@ -59,8 +59,8 @@ export default function HTML(props) {
               setDisplay(preferredDisplay || 'list');
             })();
           `,
-          }}
-        />
+          }} 
+        /> */}
         {props.preBodyComponents}
         <noscript key="noscript" id="gatsby-noscript">
           This app works best with JavaScript enabled.

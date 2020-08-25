@@ -1,68 +1,72 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 
-import { Home } from "@styled-icons/boxicons-solid/Home"
-import { SearchAlt2 as Search } from "@styled-icons/boxicons-regular/SearchAlt2"
-import { UpArrowAlt as Arrow } from "@styled-icons/boxicons-regular/UpArrowAlt"
-import { Bulb as Light } from "@styled-icons/boxicons-regular/Bulb"
-import { Grid } from "@styled-icons/boxicons-solid/Grid"
-import { ListUl as List } from "@styled-icons/boxicons-regular/ListUl"
+import SobreMim from "../../images/icons/icon_sobremim.svg"
+import SobreMimFill from "../../images/icons/icon_sobremim_fill.svg"
+import Projetos from "../../images/icons/icon_projetos.svg"
+import ProjetosFill from "../../images/icons/icon_projetos_fill.svg"
+import Blog from "../../images/icons/icon_blog.svg"
+import BlogFill from "../../images/icons/icon_blog_fill.svg"
 
-import getThemeColor from '../../utils/getThemeColor'
 
 import * as S from "./styled"
+import "./style.css"
+
+const icons = {
+  sobreMim: SobreMim,
+  sobreMimFill: SobreMimFill,
+  projetos: Projetos,
+  projetosFill: ProjetosFill,
+  blog: Blog,
+  blogFill: BlogFill,
+}
 
 export default function MenuBar() {
-  const [theme, setTheme] = useState(null)
-  const [display, setDisplay] = useState(null)
 
-  const isDarkMode = theme === "dark"
-  const isListMode = display === "list"
+  const changeIconOver = (e, flag) => {
+    e.currentTarget.children[0].src = icons[flag]
+  }
 
-  useEffect(() => {
-    setTheme(window.__theme)
-    window.__onThemeChange = () => setTheme(window.__theme)
+  const changeIconLeave = (e, flag) => {
+    e.currentTarget.children[0].src = icons[flag]
+  }
 
-    setDisplay(window.__display)
-    window.__onDisplayChange = () => setDisplay(window.__display)
-  }, [])
 
   return (
     <S.MenuBarWrapper>
-      <S.MenuBarGroup>
-        <S.MenuBarLink cover direction="right" bg={getThemeColor()} duration={0.6} to="/" title="Voltar para home">
-          <S.MenuBarItem>
-            <Home />
-          </S.MenuBarItem>
-        </S.MenuBarLink>
-        <S.MenuBarLink cover direction="right" bg={getThemeColor()} duration={0.6} to="/search/" title="Pesquisar">
-          <S.MenuBarItem>
-            <Search />
-          </S.MenuBarItem>
-        </S.MenuBarLink>
-      </S.MenuBarGroup>
-      <S.MenuBarGroup>
+      <S.MenuBarLink to="/" activeclass="testeSobreMim">
         <S.MenuBarItem
-          title="Mudar o tema"
-          onClick={() => {
-            window.__setPreferredTheme(isDarkMode ? "light" : "dark")
-          }}
-          className={theme}
+          onMouseOver={e => changeIconOver(e, "sobreMimFill")}
+          onFocus={e => changeIconOver(e, "sobreMimFill")}
+          onMouseLeave={e => changeIconLeave(e, "sobreMim")}
         >
-          <Light />
+          <S.Icon src={icons.sobreMim} alt="Icone que representa a página: sobre mim"/>
+          <div>sobre mim</div>
         </S.MenuBarItem>
+      </S.MenuBarLink>
+
+      {/* Ter o mesmo comportamento do spotify, depois de outro click vira uma página de pesquisa */}
+      <S.MenuBarLink to="/projetos">
+        <S.MenuBarItemCentral
+          onMouseOver={e => changeIconOver(e, "projetosFill")}
+          onFocus={e => changeIconOver(e, "projetosFill")}
+          onMouseLeave={e => changeIconLeave(e, "projetos")}
+        >
+          <S.Icon src={icons.projetos} alt="Icone que representa a página: projetos" />
+          <div>projetos</div>
+        </S.MenuBarItemCentral>
+      </S.MenuBarLink>
+
+      <S.MenuBarLink to="/blog">
         <S.MenuBarItem
-          title="Mudar visualização"
-          onClick={() => {
-            window.__setPreferredDisplay(isListMode ? "grid" : "list")
-          }}
-          className="display"
+          onMouseOver={e => changeIconOver(e, "blogFill")}
+          onFocus={e => changeIconOver(e, "blogFill")}
+          onMouseLeave={e => changeIconLeave(e, "blog")}
         >
-          {isListMode ? <Grid /> : <List />}
+          <S.Icon src={icons.blog} alt="Icone que representa a página: blog" />
+          <div>blog</div>
         </S.MenuBarItem>
-        <S.MenuBarItem title="Ir para o topo">
-          <Arrow />
-        </S.MenuBarItem>
-      </S.MenuBarGroup>
+      </S.MenuBarLink>
+
     </S.MenuBarWrapper>
   )
 }

@@ -5,7 +5,7 @@ import MenuLinks from "../MenuLinks"
 
 import * as S from "./styled"
 
-export default function Sidebar({ children }) {
+export default function Sidebar() {
   return (
     <S.SidebarWrapper>
       <Profile />
