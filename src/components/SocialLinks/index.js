@@ -1,28 +1,37 @@
 import React from "react"
-
-import Icons from "./Icons"
-import Links from "./content"
+import SocialMedia from "./content"
 
 import * as S from "./styled"
 
 export default function SocialLinks() {
+  const changeIconOver = (e, socialMedia) => {
+    e.target.src = socialMedia.iconFill
+  }
+
+  const changeIconLeave = (e, socialMedia) => {
+    e.target.src = socialMedia.icon
+  }
+
   return (
     <S.SocialLinksWrapper>
       <S.SocialLinksList>
-        {Links.map((link, i) => {
-          const Icon = Icons[link.label]
-
+        {SocialMedia.map((socialMedia, i) => {
           return (
             <S.SocialLinksItem key={`SocialLink-${i}`}>
               <S.SocialLinksLink
-                href={link.url}
-                title={link.label}
+                href={socialMedia.url}
+                title={socialMedia.label}
                 target="_black"
                 rel="noopener noreferrer"
               >
-                <S.IconWrapper>
-                  <Icon />
-                </S.IconWrapper>
+                <S.Icon
+                  src={socialMedia.icon}
+                  style={{width: socialMedia.label === "URI" && '2rem', height: socialMedia.label === "URI" && '2rem'}}
+                  onMouseOver={e => changeIconOver(e, socialMedia)}
+                  onFocus={e => changeIconOver(e, socialMedia)}
+                  onMouseLeave={e => changeIconLeave(e, socialMedia)}
+                  onBlur={e => changeIconLeave(e, socialMedia)}
+                />
               </S.SocialLinksLink>
             </S.SocialLinksItem>
           )

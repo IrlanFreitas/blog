@@ -1,81 +1,72 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 
-import { SearchAlt2 as Search } from "@styled-icons/boxicons-regular/SearchAlt2"
+import SobreMim from "../../images/icons/icon_sobremim.svg"
+import SobreMimFill from "../../images/icons/icon_sobremim_fill.svg"
+import Projetos from "../../images/icons/icon_projetos.svg"
+import ProjetosFill from "../../images/icons/icon_projetos_fill.svg"
+import Blog from "../../images/icons/icon_blog.svg"
+import BlogFill from "../../images/icons/icon_blog_fill.svg"
 
-import { UpArrowAlt as Arrow } from "@styled-icons/boxicons-regular/UpArrowAlt"
-import { Bulb as Light } from "@styled-icons/boxicons-regular/Bulb"
-import { Grid } from "@styled-icons/boxicons-solid/Grid"
-import { ListUl as List } from "@styled-icons/boxicons-regular/ListUl"
-
-import getThemeColor from "../../utils/getThemeColor"
 
 import * as S from "./styled"
-import './style.css'
+import "./style.css"
+
+const icons = {
+  sobreMim: SobreMim,
+  sobreMimFill: SobreMimFill,
+  projetos: Projetos,
+  projetosFill: ProjetosFill,
+  blog: Blog,
+  blogFill: BlogFill,
+}
 
 export default function MenuBar() {
-  const [theme, setTheme] = useState(null)
-  const [display, setDisplay] = useState(null)
 
-  const isDarkMode = theme === "dark"
-  const isListMode = display === "list"
+  const changeIconOver = (e, flag) => {
+    e.currentTarget.children[0].src = icons[flag]
+  }
 
-  useEffect(() => {
-    setTheme(window.__theme)
-    window.__onThemeChange = () => setTheme(window.__theme)
+  const changeIconLeave = (e, flag) => {
+    e.currentTarget.children[0].src = icons[flag]
+  }
 
-    setDisplay(window.__display)
-    window.__onDisplayChange = () => setDisplay(window.__display)
-  }, [])
 
   return (
     <S.MenuBarWrapper>
-      <S.MenuBarLink
-        cover
-        direction="top"
-        bg={getThemeColor()}
-        duration={0.6}
-        to="/"
-        activeClass="active"
-      >
-        <S.MenuBarItem>
-          <S.HomeStyled />
+      <S.MenuBarLink to="/" activeclass="testeSobreMim">
+        <S.MenuBarItem
+          onMouseOver={e => changeIconOver(e, "sobreMimFill")}
+          onFocus={e => changeIconOver(e, "sobreMimFill")}
+          onMouseLeave={e => changeIconLeave(e, "sobreMim")}
+        >
+          <S.Icon src={icons.sobreMim} alt="Icone que representa a página: sobre mim"/>
           <div>sobre mim</div>
         </S.MenuBarItem>
       </S.MenuBarLink>
 
       {/* Ter o mesmo comportamento do spotify, depois de outro click vira uma página de pesquisa */}
-      <S.MenuBarLink
-        cover
-        direction="right"
-        bg={getThemeColor()}
-        duration={0.6}
-        to="/projetos"
-      >
-        <S.MenuBarItem>
-          <S.CrownStyled /> <div>projetos</div>
+      <S.MenuBarLink to="/projetos">
+        <S.MenuBarItemCentral
+          onMouseOver={e => changeIconOver(e, "projetosFill")}
+          onFocus={e => changeIconOver(e, "projetosFill")}
+          onMouseLeave={e => changeIconLeave(e, "projetos")}
+        >
+          <S.Icon src={icons.projetos} alt="Icone que representa a página: projetos" />
+          <div>projetos</div>
+        </S.MenuBarItemCentral>
+      </S.MenuBarLink>
+
+      <S.MenuBarLink to="/blog">
+        <S.MenuBarItem
+          onMouseOver={e => changeIconOver(e, "blogFill")}
+          onFocus={e => changeIconOver(e, "blogFill")}
+          onMouseLeave={e => changeIconLeave(e, "blog")}
+        >
+          <S.Icon src={icons.blog} alt="Icone que representa a página: blog" />
+          <div>blog</div>
         </S.MenuBarItem>
       </S.MenuBarLink>
 
-      <S.MenuBarLink
-        cover
-        direction="right"
-        bg={getThemeColor()}
-        duration={0.6}
-        to="/blog"
-      >
-        <S.MenuBarItem>
-          <S.FlagStyled /> <div>blog</div>
-        </S.MenuBarItem>
-      </S.MenuBarLink>
-
-      <S.MenuBarItem
-        style={{ position: "absolute", right: 0 }}
-        title="Artista que desenhou a página"
-      >
-        <S.Artist href="https://www.linkedin.com/in/flaviakian" target="_blank">
-          /designed by kian
-        </S.Artist>
-      </S.MenuBarItem>
     </S.MenuBarWrapper>
   )
 }

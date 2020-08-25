@@ -1,9 +1,6 @@
 import styled from "styled-components"
 import media from "styled-media-query"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { Home } from "@styled-icons/boxicons-solid/Home"
-import { Crown } from "@styled-icons/fa-solid/Crown"
-import { Flag } from "@styled-icons/boxicons-regular/Flag"
+import { Link } from "gatsby"
 
 export const MenuBarWrapper = styled.nav`
   
@@ -14,7 +11,7 @@ export const MenuBarWrapper = styled.nav`
   justify-content: center;
   /* padding: 0.8rem 0; */
   width: 100%;
-  transition: background 0.5s;
+  transition: background 1s;
 
   /* ${media.lessThan("large")`
     border-top: 1px solid var(--borders);
@@ -36,87 +33,54 @@ export const MenuBarWrapper = styled.nav`
 //   `} */
 // `
 
-export const MenuBarLink = styled(AniLink)`
+export const MenuBarLink = styled(Link)`
   display: block;
   text-decoration: none;
+  width: auto;
 
-  /* &.active {
-    color: var(--highlight) !important;
-    /* span {
-    } 
-  }*/
+  &.active {
+  }
 `
 
-export const HomeStyled = styled(Home)`
+export const Icon = styled.img`
   width: 1.25rem;
   height: 1.25rem;
   margin-right: 5px;
+  transition: 1s all;
+
+  ${media.lessThan("small")`
+    margin-right: 0;
+    margin-bottom: 5px;
+    width: 1.35rem;
+    height: 1.35rem;
+  `}
 `
 
-export const CrownStyled = styled(Crown)`
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-right: 5px;
-`
-
-export const FlagStyled = styled(Flag)`
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-right: 5px;
-`
-
-export const MenuBarItem = styled.span`
+export const MenuBarItem = styled.div`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: var(--texts);
   cursor: pointer;
-  /* width: 3.75rem;
-  height: 3.75rem;
-  padding: 1.1rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: auto;
   height: 100%;
-  padding: 10px;
+  transition: 1s flex-direction;
 
-  /* ${media.lessThan("large")`
-    height: 3.2rem;
-    padding: .9rem;
-    position: relative;
-    width: 3.2rem;
+  ${media.lessThan("small")`
+    flex-direction: column;
   `}
-
-  ${media.greaterThan("large")`
-    &:hover {
-      color: var(--highlight);
-    }
-  `}
-
-  &.display {
-    ${media.lessThan("large")`
-      display: none;
-    `}
-  }
-
-  &.light {
-    color: #d4d400;
-
-    &:hover {
-      color: #e2e240;
-    }
-  } */
 
   &:hover {
     color: var(--highlight);
   }
 `
 
-export const Artist = styled.a`
-  text-decoration: underline;
-  font-size: 11px;
-  font-weight: 300;
-  letter-spacing: 0px;
-  color: #787878;
-  text-transform: lowercase;
-  opacity: 1;
+export const MenuBarItemCentral = styled(MenuBarItem)`
+  margin: 0 5.5rem;
+  transition: 1s margin;
+
+  ${media.lessThan("320px")`
+    margin: 0 3rem;
+  `}
 `
