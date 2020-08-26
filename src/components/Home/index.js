@@ -10,14 +10,14 @@ export default function Home() {
   return (
     <S.HomeWrapper>
       <S.Artist>
-        <span style={{marginRight: '5px'}}>designed by</span>
+        <span style={{marginRight: '7px'}}>designed by</span>
         <S.Logo href="https://www.linkedin.com/in/flaviakian" target="_blank">
           <img
             src={Kian}
             alt="Logomarga do designer que desenhou a página"
             style={{
-              width: "2.25rem",
-              height: "2.25rem",
+              width: "2.15rem",
+              height: "2.15rem",
             }}
           />
         </S.Logo>
