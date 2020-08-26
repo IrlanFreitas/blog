@@ -3,42 +3,37 @@ import media from "styled-media-query"
 import { Link } from "gatsby"
 
 export const MenuBarWrapper = styled.nav`
-  
   background: var(--background);
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: center;
-  /* padding: 0.8rem 0; */
   width: 100%;
   transition: background 1s;
-
-  /* ${media.lessThan("large")`
-    border-top: 1px solid var(--borders);
-    flex-direction: row;
-    position: fixed;
-    width: 100%;
-    height: auto;
-    padding: 0;
-    bottom: 0;
-  `} */
 `
-
-// export const MenuBarGroup = styled.div`
-//   display: flex;
-//   flex-direction: row;
-
-//   /* ${media.lessThan("large")`
-//     flex-direction: row;
-//   `} */
-// `
 
 export const MenuBarLink = styled(Link)`
   display: block;
   text-decoration: none;
   width: auto;
+  position: relative;
+  color: var(--texts);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 100%;
+  transition: 1s flex-direction, 1s font-size, 1s width;
 
-  &.active {
+  ${media.lessThan("small")`
+    flex-direction: column;
+    font-size: 12px;
+    width: 5rem;
+  `}
+
+  &:hover {
+    color: var(--highlight);
   }
 `
 
@@ -56,31 +51,12 @@ export const Icon = styled.img`
   `}
 `
 
-export const MenuBarItem = styled.div`
-  position: relative;
-  color: var(--texts);
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: auto;
+export const MenuBarItemCentral = styled.div`
   height: 100%;
-  transition: 1s flex-direction;
-
-  ${media.lessThan("small")`
-    flex-direction: column;
-  `}
-
-  &:hover {
-    color: var(--highlight);
-  }
-`
-
-export const MenuBarItemCentral = styled(MenuBarItem)`
-  margin: 0 5.5rem;
+  margin: 0 4.5rem;
   transition: 1s margin;
 
   ${media.lessThan("320px")`
-    margin: 0 3rem;
+    margin: 0 2rem;
   `}
 `

@@ -1,11 +1,15 @@
-/* .active {
+
+.sobreMim div, .projetos div, .blog div {
   color: var(--highlight) !important;
 }
+.sobreMim img {
+  content: url("../../images/icons/icon_sobremim_fill.svg");
+}
 
-a:-webkit-any-link:active {
-  color: var(--highlight);
-} */
+.projetos img {
+  content: url("../../images/icons/icon_projetos_fill.svg");
+}
 
-.testeSobreMim div {
-  color: var(--highlight) !important;
+.blog img {
+  content: url("../../images/icons/icon_blog_fill.svg");
 }

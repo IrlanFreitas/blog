@@ -7,7 +7,6 @@ import ProjetosFill from "../../images/icons/icon_projetos_fill.svg"
 import Blog from "../../images/icons/icon_blog.svg"
 import BlogFill from "../../images/icons/icon_blog_fill.svg"
 
-
 import * as S from "./styled"
 import "./style.css"
 
@@ -21,7 +20,6 @@ const icons = {
 }
 
 export default function MenuBar() {
-
   const changeIconOver = (e, flag) => {
     e.currentTarget.children[0].src = icons[flag]
   }
@@ -30,43 +28,50 @@ export default function MenuBar() {
     e.currentTarget.children[0].src = icons[flag]
   }
 
-
   return (
     <S.MenuBarWrapper>
-      <S.MenuBarLink to="/" activeclass="testeSobreMim">
-        <S.MenuBarItem
-          onMouseOver={e => changeIconOver(e, "sobreMimFill")}
-          onFocus={e => changeIconOver(e, "sobreMimFill")}
-          onMouseLeave={e => changeIconLeave(e, "sobreMim")}
-        >
-          <S.Icon src={icons.sobreMim} alt="Icone que representa a página: sobre mim"/>
-          <div>sobre mim</div>
-        </S.MenuBarItem>
+      <S.MenuBarLink
+        to="/"
+        activeClassName="sobreMim"
+        onMouseOver={e => changeIconOver(e, "sobreMimFill")}
+        onFocus={e => changeIconOver(e, "sobreMimFill")}
+        onMouseLeave={e => changeIconLeave(e, "sobreMim")}
+      >
+        <S.Icon
+          src={icons.sobreMim}
+          alt="Icone que representa a página: sobre mim"
+        />
+        <div>sobre mim</div>
       </S.MenuBarLink>
 
       {/* Ter o mesmo comportamento do spotify, depois de outro click vira uma página de pesquisa */}
-      <S.MenuBarLink to="/projetos">
-        <S.MenuBarItemCentral
+      <S.MenuBarItemCentral>
+        <S.MenuBarLink
+          to="/projetos"
+          activeClassName="projetos"
           onMouseOver={e => changeIconOver(e, "projetosFill")}
           onFocus={e => changeIconOver(e, "projetosFill")}
           onMouseLeave={e => changeIconLeave(e, "projetos")}
         >
-          <S.Icon src={icons.projetos} alt="Icone que representa a página: projetos" />
+          <S.Icon
+            src={icons.projetos}
+            alt="Icone que representa a página: projetos"
+          />
           <div>projetos</div>
-        </S.MenuBarItemCentral>
-      </S.MenuBarLink>
+        </S.MenuBarLink>
+      </S.MenuBarItemCentral>
 
-      <S.MenuBarLink to="/blog">
-        <S.MenuBarItem
-          onMouseOver={e => changeIconOver(e, "blogFill")}
-          onFocus={e => changeIconOver(e, "blogFill")}
-          onMouseLeave={e => changeIconLeave(e, "blog")}
-        >
-          <S.Icon src={icons.blog} alt="Icone que representa a página: blog" />
-          <div>blog</div>
-        </S.MenuBarItem>
+      <S.MenuBarLink
+        to="/blog"
+        activeClassName="blog"
+        partiallyActive={true}
+        onMouseOver={e => changeIconOver(e, "blogFill")}
+        onFocus={e => changeIconOver(e, "blogFill")}
+        onMouseLeave={e => changeIconLeave(e, "blog")}
+      >
+        <S.Icon src={icons.blog} alt="Icone que representa a página: blog" />
+        <div>blog</div>
       </S.MenuBarLink>
-
     </S.MenuBarWrapper>
   )
 }

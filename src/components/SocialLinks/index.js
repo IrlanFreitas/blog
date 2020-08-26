@@ -26,7 +26,7 @@ export default function SocialLinks() {
               >
                 <S.Icon
                   src={socialMedia.icon}
-                  style={{width: socialMedia.label === "URI" && '2rem', height: socialMedia.label === "URI" && '2rem'}}
+                  style={{width: socialMedia.label === "URI" && '2.15rem', height: socialMedia.label === "URI" && '2.15rem'}}
                   onMouseOver={e => changeIconOver(e, socialMedia)}
                   onFocus={e => changeIconOver(e, socialMedia)}
                   onMouseLeave={e => changeIconLeave(e, socialMedia)}
