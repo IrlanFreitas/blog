@@ -2,6 +2,7 @@
 .sobreMim div, .projetos div, .blog div {
   color: var(--highlight) !important;
 }
+
 .sobreMim img {
   content: url("../../images/icons/icon_sobremim_fill.svg");
 }

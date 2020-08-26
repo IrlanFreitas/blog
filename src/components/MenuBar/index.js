@@ -47,7 +47,7 @@ export default function MenuBar() {
       {/* Ter o mesmo comportamento do spotify, depois de outro click vira uma página de pesquisa */}
       <S.MenuBarItemCentral>
         <S.MenuBarLink
-          to="/projetos"
+          to="/projetos/"
           activeClassName="projetos"
           onMouseOver={e => changeIconOver(e, "projetosFill")}
           onFocus={e => changeIconOver(e, "projetosFill")}
@@ -62,7 +62,7 @@ export default function MenuBar() {
       </S.MenuBarItemCentral>
 
       <S.MenuBarLink
-        to="/blog"
+        to="/blog/"
         activeClassName="blog"
         partiallyActive={true}
         onMouseOver={e => changeIconOver(e, "blogFill")}
