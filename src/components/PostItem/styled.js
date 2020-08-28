@@ -6,10 +6,7 @@ export const PostItemLink = styled(AniLink)`
   color: var(--texts);
   display: flex;
   text-decoration: none;
-
-  body#grid & {
-    background-color: var(--background);
-  }
+  margin-bottom: 10px;
 
   &:hover {
     color: var(--highlight);
@@ -18,47 +15,31 @@ export const PostItemLink = styled(AniLink)`
 
 export const PostItemWrapper = styled.section`
   align-items: center;
-  border-bottom: 1px solid var(--borders);
   display: flex;
   padding: 1rem 2rem;
   width: 100%;
+  transition: 1s all;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("600px")`
     flex-direction: column;
     align-items: flex-start;
-    padding: 2rem 1rem;
   `}
 
-  body#grid & {
-    border: none;
-    padding: 1.5rem 1rem;
-    flex-direction: column;
-    justify-content: center;
-  }
 `
 
 export const PostItemTag = styled.div`
   align-items: center;
   background: ${props =>
     props.background ? props.background : "var(--highlight)"};
-  border-radius: 50%;
+  border-radius: 21px;
   color: var(--postColor);
-  display: flex;
-  font-size: 1.3rem;
-  font-weight: 700;
-  justify-content: center;
-  min-height: 90px;
-  min-width: 90px;
-  text-transform: uppercase;
-
-  ${media.lessThan("large")`
-    font-size: 1rem;
-    border-radius: 0;
-    min-height: auto;
-    min-width: auto;
-    padding: .2rem .5rem;
-    margin-bottom: .7rem;
-  `}
+  font-size: 0.8rem;
+  min-height: auto;
+  width: max-content;
+  padding: 4px 9px;
+  margin-top: 15px;
+  text-transform: lowercase;
+  transition: 1s all;
 
 `
 
@@ -66,25 +47,57 @@ export const PostItemInfo = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 1.5rem;
+  transition: 1s all;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("425px")`
     margin: 0;
   `}
 `
 
-export const PostItemDate = styled.time`
-  font-size: 0.7rem;
+export const PostItemDetails = styled.time`
+  font-size: 0.75rem;
+  margin-top: 10px;
+  margin-left: 2px;
+`
+
+export const PostItemDate = styled.div`
+  display: inline-block;
+  margin-right: 15px;
+`
+
+export const PostItemTimeToRead = styled.div`
+  display: inline-block;
+`
+
+export const Icon = styled.img`
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  margin-right: 5px;
+`
+
+export const PostItemImage = styled.img`
+  height: 125px;
+  width: 225px;
+  margin-right: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #282828;
+  transition: 1s all;
+
+  ${media.lessThan("600px")`
+    margin: 0 auto 10px auto;
+    width: 100%;
+  `}
+
 `
 
 export const PostItemTitle = styled.h1`
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0.2rem 0 0.5rem;
+  color: #da94ff;
+  transition: 1s all;
 
-  body#grid & {
-    line-height: 1.1;
-    margin: 0.8rem 0;
-  }
 `
 
 export const PostItemDescription = styled.p`

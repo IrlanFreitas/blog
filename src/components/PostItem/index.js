@@ -1,7 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import getThemeColor from '../../utils/getThemeColor'
+import getThemeColor from "../../utils/getThemeColor"
+import DefaultImagePost from "../../images/gatsby-icon.png"
+import Calendar from "../../images/icons/calendar_02.svg"
+import Timer from "../../images/icons/time-left.svg"
+
 import * as S from "./styled"
 
 const PostItem = ({
@@ -12,17 +16,36 @@ const PostItem = ({
   timeToRead,
   title,
   description,
+  image,
 }) => {
   return (
-    <S.PostItemLink cover direction="right" bg={getThemeColor()} duration={0.6} to={slug}>
+    <S.PostItemLink
+      cover
+      direction="top"
+      bg={getThemeColor()}
+      duration={0.6}
+      to={slug}
+    >
       <S.PostItemWrapper>
-        <S.PostItemTag background={background}>{category}</S.PostItemTag>
+        <S.PostItemImage
+          src={image ? image : DefaultImagePost}
+          alt={`Image que descreve o post: ${title}`}
+        />
+
         <S.PostItemInfo>
-          <S.PostItemDate>
-            {date} * {timeToRead} min de leitura
-          </S.PostItemDate>
           <S.PostItemTitle>{title}</S.PostItemTitle>
           <S.PostItemDescription>{description}</S.PostItemDescription>
+          <S.PostItemDetails>
+            <S.PostItemDate>
+              <S.Icon src={Calendar} alt="Ícone de calendário" />
+              {date}
+            </S.PostItemDate>
+            <S.PostItemTimeToRead>
+              <S.Icon src={Timer} alt="Ícone de relógio" />
+              {timeToRead} min de leitura
+            </S.PostItemTimeToRead>
+          </S.PostItemDetails>
+          <S.PostItemTag background={background}>{category}</S.PostItemTag>
         </S.PostItemInfo>
       </S.PostItemWrapper>
     </S.PostItemLink>
@@ -37,6 +60,7 @@ PostItem.propTypes = {
   timeToRead: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  image: PropTypes.string,
 }
 
 export default PostItem
