@@ -30,9 +30,14 @@ export const HomeImage = styled.section`
 export const HomeDescriptions = styled.section`
   width: 58%;
   padding: 0 40px;
+  transition: 1s all;
+
+  ${media.lessThan("medium")`
+    width: 66%;
+    padding: 0;
+  `}
 
   ${media.lessThan("small")`
-    transition: 1s all;
     width: 100%;
     padding: 0;
   `}
@@ -59,8 +64,8 @@ export const Phrase = styled.p`
   color: #c4c4c4;
   transition: 1s all;
 
-  ${media.lessThan("320px")` 
-    font-size: 13px !important;
+  ${media.lessThan("medium")` 
+    text-align: center;
   `}
 
   ${media.lessThan("small")` 
@@ -69,9 +74,10 @@ export const Phrase = styled.p`
     font-weight: 300;
   `}
 
-  ${media.lessThan("medium")` 
-    text-align: center;
+  ${media.lessThan("320px")` 
+    font-size: 13px !important;
   `}
+
 `
 export const Logo = styled.a``
 
