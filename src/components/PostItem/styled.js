@@ -81,7 +81,7 @@ export const PostItemImage = styled.img`
   width: 225px;
   margin-right: 10px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px #282828;
+  /* box-shadow: 0px 0px 10px #282828; */
   transition: 1s all;
 
   ${media.lessThan("600px")`
