@@ -9,8 +9,13 @@ export const PerfilWrapper = styled(Img)`
   width: 23rem;
   transition: 1s all;
 
+  ${media.lessThan("medium")` 
+    width: 100%;
+    margin: 20px auto 10px auto;
+  `}
+
   ${media.lessThan("small")` 
-    width: 65%;
+    width: 75%;
     margin: 20px auto 10px auto;
   `}
 `
