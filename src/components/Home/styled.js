@@ -60,12 +60,13 @@ export const Phrase = styled.p`
   transition: 1s all;
 
   ${media.lessThan("320px")` 
-    font-size: 12px;
+    font-size: 13px !important;
   `}
 
   ${media.lessThan("small")` 
-    font-size: 16px;
+    font-size: 17px;
     margin: 30px 0;
+    font-weight: 300;
   `}
 
   ${media.lessThan("medium")` 
@@ -79,7 +80,7 @@ export const Artist = styled.div`
   right: 0;
   top: 0;
   color: #787878;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 300;
   align-items: center;
   margin-right: 15px;

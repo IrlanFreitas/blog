@@ -81,6 +81,18 @@ function SEO({ description, lang, meta, title, image }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `viewport`,
+          content: `width=device-width, initial-scale=1`
+        },
+        {
+          name: `robots`,
+          content: `index,follow`
+        },
+        {
+          name: `keywords`,
+          content: `irlan freitas, desenvolvimento de software, blog`
+        },
       ].concat(meta)}
     />
   )

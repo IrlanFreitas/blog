@@ -1,12 +1,11 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
 export const ListWrapper = styled.section`
-    body#grid & {
-        background-color: var(--borders);
-        border-bottom: 1px solid var(--border);
-        display: grid;
-        grid-area: posts;
-        grid-gap: 1px;
-        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    }
+  padding: 0px 18%;
+  transition: 1s all;
+
+  ${media.lessThan("medium")`
+    padding: 0px 9%;
+  `}
 `

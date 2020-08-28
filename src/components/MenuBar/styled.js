@@ -53,10 +53,10 @@ export const Icon = styled.img`
 
 export const MenuBarItemCentral = styled.div`
   height: 100%;
-  margin: 0 4.5rem;
+  margin: 0 4rem;
   transition: 1s margin;
 
-  ${media.lessThan("320px")`
+  ${media.lessThan("small")`
     margin: 0 2rem;
   `}
 `
