@@ -16,20 +16,7 @@ export const LayoutWrapper = styled.section`
 export const LayoutMain = styled.main`
   background: var(--background);
   min-height: 100vh;
-  /* padding: 3rem 3rem 4.5rem 3rem; */
   padding-bottom: 4.5rem;
   transition: background, color 0.5s;
   width: 100%;
-
-  /* ${media.lessThan("large")`
-    padding: 0;
-    margin: 3.5rem 0;
-  `} */
-
-  body#grid & {
-    grid-template-areas:
-      "posts"
-      "pagination";
-
-  }
 `

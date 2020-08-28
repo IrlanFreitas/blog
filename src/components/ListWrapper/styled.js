@@ -6,6 +6,6 @@ export const ListWrapper = styled.section`
   transition: 1s all;
 
   ${media.lessThan("medium")`
-    padding: 0px 9%;
+    padding: 0px 8%;
   `}
 `
