@@ -4,42 +4,39 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 export const RecommendedWrapper = styled.section`
   border-bottom: 1px solid var(--borders);
-  border-top: 1px solid var(--borders);
-  background: var(--mediumBackground);
+  background: #000;
   display: flex;
+
+  & .icon {
+    ${media.lessThan("small")`
+      display: none;
+    `}
+  }
 `
 
 export const RecommendedLink = styled(AniLink)`
   align-items: center;
-  background: var(--mediumBackground);
-  color: var(--highlight);
+  background: #000;
+  color: #787878;
   display: flex;
   padding: 3rem;
   text-decoration: none;
   transition: background 0.5s;
   width: 50%;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     padding: 2rem 1rem;
     line-height: 1.3;
     font-size: .9rem;
   `}
 
   &:hover {
-    background: var(--borders);
+    color: var(--highlight);
   }
   &.previous {
-    border-right: 1px solid var(--borders);
-  }
-  &.next {
     justify-content: flex-end;
   }
-  &.previous:before {
-    content: "\\2190";
-    margin-right: 0.5rem;
-  }
-  &.next:after {
-    content: "\\2192";
-    margin-left: 0.5rem;
+  &.next {
+    justify-content: flex-start;
   }
 `
