@@ -2,7 +2,9 @@ import React from "react"
 import propTypes from "prop-types"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
-import getThemeColor from '../../utils/getThemeColor'
+import getThemeColor from "../../utils/getThemeColor"
+import { ArrowIosForwardOutline as ArrowForward } from "@styled-icons/evaicons-outline/ArrowIosForwardOutline"
+import { ArrowIosBackOutline as ArrowBack } from "@styled-icons/evaicons-outline/ArrowIosBackOutline"
 import * as S from "./styled"
 
 const Pagination = ({
@@ -14,13 +16,37 @@ const Pagination = ({
   nextPage,
 }) => (
   <S.PaginationWrapper>
-    {!isFirst && <AniLink cover direction="left" bg={getThemeColor()} duration={0.6} to={prevPage}> {`<-`} Página anterior</AniLink>}
-
+    
+      <AniLink
+        cover
+        direction="left"
+        bg={getThemeColor()}
+        duration={0.6}
+        to={!isFirst ? prevPage : " "}
+        style={isFirst ? {pointerEvents: "none", color: "#1e1e1e"} : {}}
+        onClick={() => {
+          return false
+        }}
+      >
+        <ArrowBack style={{ width: "16px", marginRight: "-13px" }} />
+        <ArrowBack style={{ width: "16px" }} /> página anterior
+      </AniLink>
+    
     <p>
       {currentPage}/{numPages}
     </p>
 
-    {!isLast && <AniLink cover direction="right" bg={getThemeColor()} duration={0.6}  to={nextPage}>Próxima pagina -></AniLink>}
+    <AniLink
+      cover
+      direction="right"
+      bg={getThemeColor()}
+      duration={0.6}
+      to={!isLast ? nextPage : " "}
+      style={isLast ? {pointerEvents: "none", color: "#1e1e1e"} : {}}
+    >
+      próxima pagina <ArrowForward style={{ width: "16px" }} />
+      <ArrowForward style={{ width: "16px", marginLeft: "-9px" }} />
+    </AniLink>
   </S.PaginationWrapper>
 )
 
