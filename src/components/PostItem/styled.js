@@ -18,7 +18,7 @@ export const PostItemWrapper = styled.section`
   display: flex;
   padding: 1rem 2rem;
   width: 100%;
-  transition: 1s all;
+  transition: 1s flex-direction, align-items;
 
   ${media.lessThan("600px")`
     flex-direction: column;
@@ -47,7 +47,7 @@ export const PostItemInfo = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 1.5rem;
-  transition: 1s all;
+  transition: 1s margin;
 
   ${media.lessThan("425px")`
     margin: 0;
@@ -82,7 +82,7 @@ export const PostItemImage = styled.img`
   margin-right: 10px;
   border-radius: 10px;
   /* box-shadow: 0px 0px 10px #282828; */
-  transition: 1s all;
+  transition: 1s margin, width;
 
   ${media.lessThan("600px")`
     margin: 0 auto 10px auto;
@@ -96,8 +96,6 @@ export const PostItemTitle = styled.h1`
   font-weight: 700;
   margin: 0.2rem 0 0.5rem;
   color: #da94ff;
-  transition: 1s all;
-
 `
 
 export const PostItemDescription = styled.p`
