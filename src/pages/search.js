@@ -8,7 +8,6 @@ const SearchPage = () => (
   <Layout>
     <SEO title="Search" />
     <Search />
-
   </Layout>
 )
 
