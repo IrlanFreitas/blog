@@ -5,12 +5,25 @@ export const PostHeader = styled.header`
   color: var(--postColor);
   margin: auto;
   max-width: 70rem;
-  padding: 5rem 5rem 0;
+  padding: 0 5rem 0;
+  transition: 1s all;
 
-  ${media.lessThan("large")`
-    padding: 3rem 0 0;
+  ${media.lessThan("medium")`
+    padding: 0;
     max-width: 100%;
   `}
+`
+
+export const PostImage = styled.img`
+  padding: 0 1.4rem;
+  height: 15rem;
+`
+
+export const Icon = styled.img`
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  margin-right: 3px;
 `
 
 export const PostTitle = styled.h1`
@@ -18,8 +31,9 @@ export const PostTitle = styled.h1`
   font-weight: 700;
   padding: 0 1.4rem;
   margin: 1rem auto;
+  transition: 1s all;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     font-size: 2.8rem;
     line-height: 1.1;
     padding: 0 1rem;
@@ -30,8 +44,9 @@ export const PostDescription = styled.h2`
   font-size: 2rem;
   font-weight: 200;
   padding: 0 1.4rem;
+  transition: 1s all;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     font-size: 1.6rem;
     line-height: 1.3;
     padding: 0 1rem;
@@ -42,8 +57,10 @@ export const PostDate = styled.p`
   font-size: 1.1rem;
   font-weight: 100;
   padding: 0 1.4rem;
+  transition: 1s all;
+  margin-top: 2rem;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     padding: 0 1rem;
   `}
 `
@@ -52,8 +69,9 @@ export const MainContent = styled.section`
   margin: auto;
   max-width: 70rem;
   padding: 2rem 5rem;
+  transition: 1s all;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     padding: 2rem 0;
     max-width: 100%;
   `}
@@ -75,7 +93,7 @@ export const MainContent = styled.section`
     letter-spacing: 0.069rem;
     padding: 0 1.4rem;
 
-    ${media.lessThan("large")`
+    ${media.lessThan("medium")`
       padding: 0 1rem;
       word-break: break-word;
     `}

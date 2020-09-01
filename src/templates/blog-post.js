@@ -6,6 +6,9 @@ import RecommendedPosts from "../components/RecommendedPosts"
 import Comments from "../components/Comments"
 import * as S from "../components/Post/styled"
 
+import Calendar from "../images/icons/calendar_02.svg"
+import Timer from "../images/icons/time-left.svg"
+
 const BlogPost = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const next = pageContext.nextPost
@@ -19,8 +22,16 @@ const BlogPost = ({ data, pageContext }) => {
         image={post.frontmatter.image}
       />
       <S.PostHeader>
+        {post.frontmatter.image && <S.PostImage src={post.frontmatter.image} />}
         <S.PostDate>
-          {post.frontmatter.date} • {post.timeToRead} min de leitura
+          <span>
+            <S.Icon src={Calendar} alt="Ícone de calendário" />
+            {post.frontmatter.date}
+          </span>
+          <span style={{ marginleft: 30 }}>
+            <S.Icon src={Timer} alt="Ícone de relógio" /> {post.timeToRead} min
+            de leitura
+          </span>
         </S.PostDate>
         <S.PostTitle>{post.frontmatter.title}</S.PostTitle>
         <S.PostDescription>{post.frontmatter.description}</S.PostDescription>
@@ -43,7 +54,7 @@ export const query = graphql`
       frontmatter {
         title
         description
-        date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+        date(locale: "pt-br", formatString: "DD/MM/YYYY")
         image
       }
       html
