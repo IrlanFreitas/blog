@@ -91,7 +91,11 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           name: `keywords`,
-          content: `irlan freitas, desenvolvimento de software, blog`
+          content: `irlan freitas, irlan, desenvolvimento de software, blog`
+        },
+        {
+          name: `google-site-verification`,
+          content: `ijUjxgY4GS3RJdOJtcjkkeREWGYd5uPw84kdFgDqZrOs`
         },
       ].concat(meta)}
     />
