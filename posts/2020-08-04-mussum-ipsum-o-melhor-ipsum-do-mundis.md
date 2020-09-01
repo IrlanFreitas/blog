@@ -5,6 +5,7 @@ date: 2020-08-03 08:58:20
 thumbnail: assets/img/mountains.jpg
 category: dev
 background: "#B31917"
+section: project
 ---
 
 ## Mussum Ipsum o melhor ipsum do mundis

@@ -4,6 +4,7 @@ title: Lorem Lorem
 description: And I'm lorem sure lorem .
 category: Js
 background: "#111B14"
+section: blog
 ---
 
 # Lorem ipsum

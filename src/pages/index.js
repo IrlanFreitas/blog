@@ -5,7 +5,7 @@ import Home from '../components/Home'
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="sobre mim" />
+    <SEO title="Irlan Freitas" />
     <Home />
   </Layout>
 )
