@@ -28,7 +28,7 @@ const BlogPost = ({ data, pageContext }) => {
             <S.Icon src={Calendar} alt="Ícone de calendário" />
             {post.frontmatter.date}
           </span>
-          <span style={{ marginleft: 30 }}>
+          <span style={{ marginLeft: 30 }}>
             <S.Icon src={Timer} alt="Ícone de relógio" /> {post.timeToRead} min
             de leitura
           </span>
