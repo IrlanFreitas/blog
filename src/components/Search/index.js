@@ -7,15 +7,19 @@ import Hit from './Hit'
 const algolia = {
   appId: process.env.GATSBY_ALGOLIA_APP_ID,
   searchOnlyApiKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
-  indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+  indexNameBlog: process.env.GATSBY_ALGOLIA_POST_INDEX_NAME,
+  indexNameProject: process.env.GATSBY_ALGOLIA_PROJECT_INDEX_NAME,
 }
 
 const searchClient = algoliasearch(algolia.appId, algolia.searchOnlyApiKey)
 
-const Search = () => {
+const Search = ({find}) => {
+
+  console.log(find);
+
   return (
     <S.SearchWrapper>
-      <InstantSearch searchClient={searchClient} indexName={algolia.indexName}>
+      <InstantSearch searchClient={searchClient} indexName={find === "project" ? algolia.indexNameProject : algolia.indexNameBlog}>
         <SearchBox translations={{placeholder: "Pesquisar..."}} />
         <Stats translations={{stats(nbHits, timesSpentMs) {
             return `${nbHits} resultados encontrados em ${timesSpentMs} ms` 

@@ -7,24 +7,25 @@ import Pagination from "../components/Pagination"
 
 import * as S from "../components/ListWrapper/styled"
 
-const BlogList = props => {
+const ProjectList = props => {
   const postList = props.data.allMarkdownRemark.edges
-  const { currentPageBlog, numPagesBlog } = props.pageContext
-  const isFirst = currentPageBlog === 1
-  const isLast = currentPageBlog === numPagesBlog
+
+  const { currentPageProject, numPagesProject } = props.pageContext
+  const isFirst = currentPageProject === 1
+  const isLast = currentPageProject === numPagesProject
   const prevPage =
-    currentPageBlog - 1 === 1 ? `/blog/` : `/blog/page/${currentPageBlog - 1}`
-  const nextPage = `/blog/page/${currentPageBlog + 1}`
+    currentPageProject - 1 === 1 ? `/project/` : `/project/page/${currentPageProject - 1}`
+  const nextPage = `/project/page/${currentPageProject + 1}`
 
   return (
     <Layout>
       <SEO
-        title="blog"
-        description={"Blog com posts sobre experiências no desenvolvimento"}
+        title="projetos"
+        description={"Posts sobre experiências com projetos"}
       />
       <S.ListWrapper>
         {postList
-          ?.filter(post => post.node.frontmatter.section === "blog")
+          ?.filter(post => post.node.frontmatter.section === 'project')
           ?.map(
             ({
               node: {
@@ -36,7 +37,8 @@ const BlogList = props => {
                   category,
                   background,
                   image,
-                  section
+                  section,
+                  duration
                 },
                 timeToRead,
                 fields: { slug },
@@ -59,8 +61,8 @@ const BlogList = props => {
       <Pagination
         isFirst={isFirst}
         isLast={isLast}
-        currentPage={currentPageBlog}
-        numPages={numPagesBlog}
+        currentPage={currentPageProject}
+        numPages={numPagesProject}
         prevPage={prevPage}
         nextPage={nextPage}
       />
@@ -69,11 +71,11 @@ const BlogList = props => {
 }
 
 export const query = graphql`
-  query BlogList($skipBlog: Int!, $limitBlog: Int!) {
+  query ProjectList($skipProject: Int!, $limitProject: Int!) {
     allMarkdownRemark(
       sort: { fields: frontmatter___date, order: DESC }
-      limit: $limitBlog
-      skip: $skipBlog
+      limit: $limitProject
+      skip: $skipProject
     ) {
       edges {
         node {
@@ -97,4 +99,4 @@ export const query = graphql`
   }
 `
 
-export default BlogList
+export default ProjectList
