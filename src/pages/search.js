@@ -3,12 +3,14 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import Search from "../components/Search"
 
+const SearchPage = ({ location: { search } }) => {
 
-const SearchPage = () => (
-  <Layout>
-    <SEO title="Search" />
-    <Search />
-  </Layout>
-)
+  return (
+    <Layout>
+      <SEO title="Search" />
+      <Search find={search.slice(6)}/>
+    </Layout>
+  )
+}
 
 export default SearchPage

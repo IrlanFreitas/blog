@@ -9,7 +9,7 @@ import * as S from "../components/Post/styled"
 import Calendar from "../images/icons/calendar_02.svg"
 import Timer from "../images/icons/time-left.svg"
 
-const BlogPost = ({ data, pageContext }) => {
+const ProjectPost = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const next = pageContext.nextPost
   const previous = pageContext.previousPost
@@ -46,7 +46,7 @@ const BlogPost = ({ data, pageContext }) => {
 }
 
 export const query = graphql`
-  query PostBlogContent($slug: String!) {
+  query PostProjectContent($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       fields {
         slug
@@ -63,4 +63,4 @@ export const query = graphql`
   }
 `
 
-export default BlogPost
+export default ProjectPost
