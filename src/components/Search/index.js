@@ -15,8 +15,6 @@ const searchClient = algoliasearch(algolia.appId, algolia.searchOnlyApiKey)
 
 const Search = ({find}) => {
 
-  console.log(find);
-
   return (
     <S.SearchWrapper>
       <InstantSearch searchClient={searchClient} indexName={find === "project" ? algolia.indexNameProject : algolia.indexNameBlog}>
