@@ -16,19 +16,19 @@ const Pagination = ({
   nextPage,
 }) => (
   <S.PaginationWrapper>
-    <AniLink
-      cover
-      direction="left"
-      bg={getThemeColor()}
-      duration={0.6}
-      to={!isFirst ? prevPage : " "}
-      style={isFirst ? { pointerEvents: "none", color: "#1e1e1e" } : {}}
-    >
-      <ArrowBack style={{ width: "16px", marginRight: "-9px" }} />
-      <ArrowBack style={{ width: "16px", marginRight: "5px" }} />
-      página anterior
-    </AniLink>
-
+    
+      <AniLink
+        cover
+        direction="left"
+        bg={getThemeColor()}
+        duration={0.6}
+        to={!isFirst ? prevPage : " "}
+        style={isFirst ? {pointerEvents: "none", color: "#1e1e1e"} : {}}
+      >
+        <ArrowBack style={{ width: "16px", marginRight: "-9px" }} />
+        <ArrowBack style={{ width: "16px", marginRight: "5px" }} /> página anterior
+      </AniLink>
+    
     <p>
       {currentPage}/{numPages}
     </p>
@@ -39,10 +39,9 @@ const Pagination = ({
       bg={getThemeColor()}
       duration={0.6}
       to={!isLast ? nextPage : " "}
-      style={isLast ? { pointerEvents: "none", color: "#1e1e1e" } : {}}
+      style={isLast ? {pointerEvents: "none", color: "#1e1e1e"} : {}}
     >
-      próxima pagina
-      <ArrowForward style={{ width: "16px", marginLeft: "5px" }} />
+      próxima pagina <ArrowForward style={{ width: "16px", marginLeft: "5px" }} />
       <ArrowForward style={{ width: "16px", marginLeft: "-9px" }} />
     </AniLink>
   </S.PaginationWrapper>

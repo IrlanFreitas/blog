@@ -12,7 +12,6 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 //* To add the slug field to each post
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-
   // Ensures we are processing only markdown files
   if (node.internal.type === "MarkdownRemark") {
     // Use `createFilePath` to turn markdown files in our `data/faqs` directory into `/faqs/slug`
@@ -26,10 +25,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: "slug",
-      value:
-        node.frontmatter.section === `blog`
-          ? `/blog/${slug.slice(12)}`
-          : `/project/${slug.slice(12)}`,
+      value: `/blog/${slug.slice(12)}`,
     })
   }
 }
@@ -82,20 +78,9 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `
   ).then(result => {
-    const allPosts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMarkdownRemark.edges
 
-    const blogPosts = allPosts.filter(
-      post => post.node.frontmatter.section === "blog"
-    )
-
-    const projectPosts = allPosts.filter(
-      post => post.node.frontmatter.section === "project"
-    )
-
-    const postPerPage = 5
-    
-    blogPosts.forEach(({ node, next, previous }) => {
-      
+    posts.forEach(({ node, next, previous }) => {
       createPage({
         path: node.fields.slug,
         component: path.resolve("./src/templates/blog-post.js"),
@@ -107,44 +92,18 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    projectPosts.forEach(({ node, next, previous }) => {
+    const postPerPage = 6
+    const numPages = Math.ceil(posts.length / postPerPage)
 
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve("./src/templates/project-post.js"),
-        context: {
-          slug: node.fields.slug,
-          previousPost: next,
-          nextPost: previous,
-        },
-      })
-    })
-
-    const numPagesBlog = Math.ceil(blogPosts.length / postPerPage)
-    const numPagesProject = Math.ceil(projectPosts.length / postPerPage)
-
-    Array.from({ length: numPagesBlog }).forEach((_, index) => {
+    Array.from({ length: numPages }).forEach((_, index) => {
       createPage({
         path: index === 0 ? `/blog/` : `/blog/page/${index + 1}`,
         component: path.resolve("./src/templates/blog-list.js"),
         context: {
-          limitBlog: postPerPage,
-          skipBlog: index * postPerPage,
-          numPagesBlog,
-          currentPageBlog: index + 1,
-        },
-      })
-    })
-
-    Array.from({ length: numPagesProject }).forEach((_, index) => {
-      createPage({
-        path: index === 0 ? `/project/` : `/project/page/${index + 1}`,
-        component: path.resolve("./src/templates/project-list.js"),
-        context: {
-          limitProject: postPerPage,
-          skipProject: index * postPerPage,
-          numPagesProject,
-          currentPageProject: index + 1,
+          limit: postPerPage,
+          skip: index * postPerPage,
+          numPages,
+          currentPage: index + 1,
         },
       })
     })

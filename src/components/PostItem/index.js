@@ -17,8 +17,6 @@ const PostItem = ({
   title,
   description,
   image,
-  section,
-  duration
 }) => {
   return (
     <S.PostItemLink
