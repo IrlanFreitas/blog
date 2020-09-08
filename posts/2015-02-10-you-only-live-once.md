@@ -1,5 +1,5 @@
 ---
-date: 2015-02-10 05:54:23
+date: 2018-02-10
 title: You only live once
 description: But if you do it right, once is enough
 category: dev

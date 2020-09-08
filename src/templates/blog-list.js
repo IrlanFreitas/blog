@@ -35,8 +35,7 @@ const BlogList = props => {
                   date,
                   category,
                   background,
-                  image,
-                  section
+                  image
                 },
                 timeToRead,
                 fields: { slug },

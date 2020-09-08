@@ -1,9 +1,10 @@
 ---
-date: 2018-01-03 05:54:23
+date: 2018-01-03
 title: Two things are infinite
 description: And I'm not sure about the universe.
 category: Misc
 background: "#744B13"
+image: "/assets/img/desert.jpg"
 section: blog
 ---
 

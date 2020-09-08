@@ -1,5 +1,5 @@
 ---
-date: 2018-01-05 05:54:23
+date: 2018-01-05
 title: Lorem Lorem
 description: And I'm lorem sure lorem .
 category: Js

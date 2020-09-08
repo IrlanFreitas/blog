@@ -1,10 +1,11 @@
 ---
-date: 2015-05-10 05:54:23
+date: 2018-05-10
 title: I am so clever
 description: That sometimes I don't understand a single word of what I am saying
 category: css
 background: "#24809e"
 section: project
+duration: 4
 ---
 
 [The Big Oxmox](http://google.com) advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.

@@ -37,7 +37,6 @@ const ProjectList = props => {
                   category,
                   background,
                   image,
-                  section,
                   duration
                 },
                 timeToRead,
@@ -88,6 +87,7 @@ export const query = graphql`
             background
             image
             section
+            duration
           }
           timeToRead
           fields {

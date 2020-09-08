@@ -9,34 +9,43 @@
 
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-//* To add the slug field to each post
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
-  // Ensures we are processing only markdown files
-  if (node.internal.type === "MarkdownRemark") {
-    // Use `createFilePath` to turn markdown files in our `data/faqs` directory into `/faqs/slug`
+  if (node.internal.type === "MarkdownRemark" && node.path === "/blog/") {
+
     const slug = createFilePath({
       node,
       getNode,
       basePath: "pages",
     })
 
-    // Creates new query'able field with name of 'slug'
     createNodeField({
       node,
       name: "slug",
-      value:
-        node.frontmatter.section === `blog`
-          ? `/blog/${slug.slice(12)}`
-          : `/project/${slug.slice(12)}`,
+      value: `/blog/${slug.slice(12)}`
+    })
+  }
+
+  if (node.internal.type === "MarkdownRemark" && node.path === "/project/") {
+
+    const slug = createFilePath({
+      node,
+      getNode,
+      basePath: "pages",
+    })
+
+    createNodeField({
+      node,
+      name: "slug",
+      value: `/project/${slug.slice(12)}`,
     })
   }
 }
 
 const path = require(`path`)
 
-//* To create page
+//! Criar páginas do blog
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -84,18 +93,17 @@ exports.createPages = ({ graphql, actions }) => {
   ).then(result => {
     const allPosts = result.data.allMarkdownRemark.edges
 
-    const blogPosts = allPosts.filter(
-      post => post.node.frontmatter.section === "blog"
-    )
+    // const blogPosts = allPosts.filter(
+    //   post => post.node.frontmatter.section === "blog"
+    // )
 
-    const projectPosts = allPosts.filter(
-      post => post.node.frontmatter.section === "project"
-    )
+    // const projectPosts = allPosts.filter(
+    //   post => post.node.frontmatter.section === "project"
+    // )
 
     const postPerPage = 5
-    
-    blogPosts.forEach(({ node, next, previous }) => {
-      
+
+    allPosts.forEach(({ node, next, previous }) => {
       createPage({
         path: node.fields.slug,
         component: path.resolve("./src/templates/blog-post.js"),
@@ -107,21 +115,20 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    projectPosts.forEach(({ node, next, previous }) => {
-
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve("./src/templates/project-post.js"),
-        context: {
-          slug: node.fields.slug,
-          previousPost: next,
-          nextPost: previous,
-        },
-      })
-    })
+    // projectPosts.forEach(({ node, next, previous }) => {
+    //   createPage({
+    //     path: node.fields.slug,
+    //     component: path.resolve("./src/templates/project-post.js"),
+    //     context: {
+    //       slug: node.fields.slug,
+    //       previousPost: next,
+    //       nextPost: previous,
+    //     },
+    //   })
+    // })
 
     const numPagesBlog = Math.ceil(blogPosts.length / postPerPage)
-    const numPagesProject = Math.ceil(projectPosts.length / postPerPage)
+    // const numPagesProject = Math.ceil(projectPosts.length / postPerPage)
 
     Array.from({ length: numPagesBlog }).forEach((_, index) => {
       createPage({
@@ -135,6 +142,86 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
     })
+
+    // Array.from({ length: numPagesProject }).forEach((_, index) => {
+    //   createPage({
+    //     path: index === 0 ? `/project/` : `/project/page/${index + 1}`,
+    //     component: path.resolve("./src/templates/project-list.js"),
+    //     context: {
+    //       limitProject: postPerPage,
+    //       skipProject: index * postPerPage,
+    //       numPagesProject,
+    //       currentPageProject: index + 1,
+    //     },
+    //   })
+    // })
+
+  })
+}
+
+//! Criar páginas do projeto
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  return graphql(
+    `
+      {
+        allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                date(locale: "pt-br", formatString: "DD [de] MMMM [de] yyyy")
+                description
+                category
+                background
+                image
+                section
+              }
+              timeToRead
+              fields {
+                slug
+              }
+            }
+            next {
+              frontmatter {
+                title
+              }
+              fields {
+                slug
+              }
+            }
+            previous {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+      }
+    `
+  ).then(result => {
+    const allPosts = result.data.allMarkdownRemark.edges
+
+    const postPerPage = 5
+
+    allPosts.forEach(({ node, next, previous }) => {
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve("./src/templates/project-post.js"),
+        context: {
+          slug: node.fields.slug,
+          previousPost: next,
+          nextPost: previous,
+        },
+      })
+    })
+
+    const numPagesProject = Math.ceil(projectPosts.length / postPerPage)
 
     Array.from({ length: numPagesProject }).forEach((_, index) => {
       createPage({

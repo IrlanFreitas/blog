@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import getThemeColor from "../../utils/getThemeColor"
-import DefaultImagePost from "../../images/gatsby-icon.png"
+import DefaultImagePost from "../../images/banner.svg"
 import Calendar from "../../images/icons/calendar_02.svg"
 import Timer from "../../images/icons/time-left.svg"
 
@@ -18,16 +18,12 @@ const PostItem = ({
   description,
   image,
   section,
-  duration
+  duration,
+  link,
+  stack,
 }) => {
   return (
-    <S.PostItemLink
-      cover
-      direction="top"
-      bg={getThemeColor()}
-      duration={0.6}
-      to={slug}
-    >
+    <S.PostItemLink to={slug}>
       <S.PostItemWrapper>
         <S.PostItemImage
           src={image ? image : DefaultImagePost}

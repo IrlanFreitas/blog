@@ -1,10 +1,12 @@
 ---
-date: 2014-01-31 05:54:23
+date: 2018-01-31
 title: Waiting to die
 description: So say goodbye to love and hold your head up high
 category: svg
 background: "#7d669e"
+image: "/assets/img/desert.jpg"
 section: blog
+duration: 0
 ---
 
 Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, [bibendum](http://google.com) eu pulvinar vel, sodales vitae dui.

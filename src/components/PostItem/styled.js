@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import media from "styled-media-query"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 
-export const PostItemLink = styled(AniLink)`
+export const PostItemLink = styled(Link)`
   color: var(--texts);
   display: flex;
   text-decoration: none;
@@ -24,7 +24,6 @@ export const PostItemWrapper = styled.section`
     flex-direction: column;
     align-items: flex-start;
   `}
-
 `
 
 export const PostItemTag = styled.div`
@@ -40,7 +39,6 @@ export const PostItemTag = styled.div`
   margin-top: 15px;
   text-transform: lowercase;
   transition: 1s all;
-
 `
 
 export const PostItemInfo = styled.div`
@@ -88,7 +86,6 @@ export const PostItemImage = styled.img`
     margin: 0 auto 10px auto;
     width: 100%;
   `}
-
 `
 
 export const PostItemTitle = styled.h1`
