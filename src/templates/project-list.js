@@ -75,6 +75,7 @@ export const query = graphql`
       sort: { fields: frontmatter___date, order: DESC }
       limit: $limitProject
       skip: $skipProject
+      filter: {fileAbsolutePath: {regex: "/projects/"} }
     ) {
       edges {
         node {
@@ -86,8 +87,6 @@ export const query = graphql`
             category
             background
             image
-            section
-            duration
           }
           timeToRead
           fields {

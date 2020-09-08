@@ -2,7 +2,7 @@
 require("dotenv").config()
 
 const postQuery = `{
-    posts: allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }){
+    posts: allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }, filter: {fileAbsolutePath: {regex: "/projects/"} }){
       edges {
         node {
           objectID: id
@@ -25,7 +25,7 @@ const postQuery = `{
   }`
 
 const projectQuery = `{
-    projects: allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }){
+    projects: allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }, filter: {fileAbsolutePath: {regex: "/projects/"} }){
       edges {
         node {
           objectID: id

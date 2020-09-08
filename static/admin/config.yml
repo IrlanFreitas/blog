@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: IrlanFreitas/pwa-with-react
+  repo: IrlanFreitas/blog
   branch: master
   site_domain: https://irlanfreitas.me/
   

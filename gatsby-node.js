@@ -12,34 +12,28 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === "MarkdownRemark" && node.path === "/blog/") {
-
+  if (node.internal.type === "MarkdownRemark") {
     const slug = createFilePath({
       node,
       getNode,
       basePath: "pages",
     })
 
-    createNodeField({
-      node,
-      name: "slug",
-      value: `/blog/${slug.slice(12)}`
-    })
-  }
+    if (node.path === "/posts/") {
+      createNodeField({
+        node,
+        name: "slug",
+        value: `/blog/${slug.slice(12)}`,
+      })
+    }
 
-  if (node.internal.type === "MarkdownRemark" && node.path === "/project/") {
-
-    const slug = createFilePath({
-      node,
-      getNode,
-      basePath: "pages",
-    })
-
-    createNodeField({
-      node,
-      name: "slug",
-      value: `/project/${slug.slice(12)}`,
-    })
+    if (node.path === "/projects/") {
+      createNodeField({
+        node,
+        name: "slug",
+        value: `/project/${slug.slice(12)}`,
+      })
+    }
   }
 }
 
@@ -52,7 +46,10 @@ exports.createPages = ({ graphql, actions }) => {
   return graphql(
     `
       {
-        allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+        allMarkdownRemark(
+          sort: { fields: frontmatter___date, order: DESC }
+          filter: { fileAbsolutePath: { regex: "/posts/" } }
+        ) {
           edges {
             node {
               id
@@ -155,7 +152,6 @@ exports.createPages = ({ graphql, actions }) => {
     //     },
     //   })
     // })
-
   })
 }
 
@@ -166,7 +162,10 @@ exports.createPages = ({ graphql, actions }) => {
   return graphql(
     `
       {
-        allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+        allMarkdownRemark(
+          sort: { fields: frontmatter___date, order: DESC }
+          filter: { fileAbsolutePath: { regex: "/projects/" } }
+        ) {
           edges {
             node {
               id
