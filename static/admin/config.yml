@@ -32,7 +32,8 @@ collections:
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Date", name: "date", widget: "date", format: "DD-MM-YYYY"}
       - {label: "Image", name: "image", widget: "image"}
-      - {label: "Duration", name: "duration", widget: "number", default: 0}
-      - {label: "Link", name: "link", widget: "string", default: ""}
+      - {label: "Duration In Months", name: "duration", widget: "number", default: 0}
+      - {label: "Repo", name: "repo", widget: "string", default: ""}
+      - {label: "Publication", name: "publication", widget: "string", default: ""}
       - {label: "Stack", name: "stack", widget: "string", default: ""}
       - {label: "Body", name: "body", widget: "markdown"}

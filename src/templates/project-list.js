@@ -14,7 +14,9 @@ const ProjectList = props => {
   const isFirst = currentPageProject === 1
   const isLast = currentPageProject === numPagesProject
   const prevPage =
-    currentPageProject - 1 === 1 ? `/project/` : `/project/page/${currentPageProject - 1}`
+    currentPageProject - 1 === 1
+      ? `/project/`
+      : `/project/page/${currentPageProject - 1}`
   const nextPage = `/project/page/${currentPageProject + 1}`
 
   return (
@@ -25,7 +27,6 @@ const ProjectList = props => {
       />
       <S.ListWrapper>
         {postList
-          ?.filter(post => post.node.frontmatter.section === 'project')
           ?.map(
             ({
               node: {
@@ -34,10 +35,11 @@ const ProjectList = props => {
                   title,
                   description,
                   date,
-                  category,
-                  background,
                   image,
-                  duration
+                  duration,
+                  repo,
+                  publication,
+                  stack,
                 },
                 timeToRead,
                 fields: { slug },
@@ -46,8 +48,6 @@ const ProjectList = props => {
               <PostItem
                 key={id}
                 slug={slug}
-                background={background}
-                category={category}
                 date={date}
                 timeToRead={timeToRead}
                 title={title}
@@ -75,7 +75,7 @@ export const query = graphql`
       sort: { fields: frontmatter___date, order: DESC }
       limit: $limitProject
       skip: $skipProject
-      filter: {fileAbsolutePath: {regex: "/projects/"} }
+      filter: { fileAbsolutePath: { regex: "/projects/" } }
     ) {
       edges {
         node {
@@ -84,9 +84,11 @@ export const query = graphql`
             title
             date(locale: "pt-br", formatString: "DD/MM/yyyy")
             description
-            category
-            background
             image
+            duration
+            repo
+            publication
+            stack
           }
           timeToRead
           fields {

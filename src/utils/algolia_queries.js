@@ -2,7 +2,7 @@
 require("dotenv").config()
 
 const postQuery = `{
-    posts: allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }, filter: {fileAbsolutePath: {regex: "/projects/"} }){
+    posts: allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }, filter: {fileAbsolutePath: {regex: "/posts/"} }){
       edges {
         node {
           objectID: id
@@ -16,7 +16,6 @@ const postQuery = `{
             date_timestamp: date
             date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
             description
-            section
           }
           excerpt(pruneLength: 5000)
         }
@@ -39,7 +38,6 @@ const projectQuery = `{
             date_timestamp: date
             date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
             description
-            section
           }
           excerpt(pruneLength: 5000)
         }

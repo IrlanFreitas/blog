@@ -19,7 +19,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       basePath: "pages",
     })
 
-    if (node.path === "/posts/") {
+    if (node.fileAbsolutePath.includes("/posts/")) {
+
       createNodeField({
         node,
         name: "slug",
@@ -27,7 +28,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       })
     }
 
-    if (node.path === "/projects/") {
+    if (node.fileAbsolutePath.includes("/projects/")) {
       createNodeField({
         node,
         name: "slug",
@@ -40,14 +41,16 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 const path = require(`path`)
 
 //! Criar páginas do blog
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  return graphql(
+  const postPerPage = 5
+
+  await graphql(
     `
       {
         allMarkdownRemark(
-          sort: { fields: frontmatter___date, order: DESC }
+          sort: { fields: frontmatter___date, order: DESC },
           filter: { fileAbsolutePath: { regex: "/posts/" } }
         ) {
           edges {
@@ -60,7 +63,6 @@ exports.createPages = ({ graphql, actions }) => {
                 category
                 background
                 image
-                section
               }
               timeToRead
               fields {
@@ -88,19 +90,11 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `
   ).then(result => {
+
     const allPosts = result.data.allMarkdownRemark.edges
 
-    // const blogPosts = allPosts.filter(
-    //   post => post.node.frontmatter.section === "blog"
-    // )
-
-    // const projectPosts = allPosts.filter(
-    //   post => post.node.frontmatter.section === "project"
-    // )
-
-    const postPerPage = 5
-
     allPosts.forEach(({ node, next, previous }) => {
+
       createPage({
         path: node.fields.slug,
         component: path.resolve("./src/templates/blog-post.js"),
@@ -112,20 +106,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    // projectPosts.forEach(({ node, next, previous }) => {
-    //   createPage({
-    //     path: node.fields.slug,
-    //     component: path.resolve("./src/templates/project-post.js"),
-    //     context: {
-    //       slug: node.fields.slug,
-    //       previousPost: next,
-    //       nextPost: previous,
-    //     },
-    //   })
-    // })
-
-    const numPagesBlog = Math.ceil(blogPosts.length / postPerPage)
-    // const numPagesProject = Math.ceil(projectPosts.length / postPerPage)
+    const numPagesBlog = Math.ceil(allPosts.length / postPerPage)
 
     Array.from({ length: numPagesBlog }).forEach((_, index) => {
       createPage({
@@ -140,30 +121,13 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    // Array.from({ length: numPagesProject }).forEach((_, index) => {
-    //   createPage({
-    //     path: index === 0 ? `/project/` : `/project/page/${index + 1}`,
-    //     component: path.resolve("./src/templates/project-list.js"),
-    //     context: {
-    //       limitProject: postPerPage,
-    //       skipProject: index * postPerPage,
-    //       numPagesProject,
-    //       currentPageProject: index + 1,
-    //     },
-    //   })
-    // })
   })
-}
 
-//! Criar páginas do projeto
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-
-  return graphql(
+  await graphql(
     `
       {
         allMarkdownRemark(
-          sort: { fields: frontmatter___date, order: DESC }
+          sort: { fields: frontmatter___date, order: DESC },
           filter: { fileAbsolutePath: { regex: "/projects/" } }
         ) {
           edges {
@@ -173,10 +137,8 @@ exports.createPages = ({ graphql, actions }) => {
                 title
                 date(locale: "pt-br", formatString: "DD [de] MMMM [de] yyyy")
                 description
-                category
                 background
                 image
-                section
               }
               timeToRead
               fields {
@@ -205,10 +167,9 @@ exports.createPages = ({ graphql, actions }) => {
     `
   ).then(result => {
     const allPosts = result.data.allMarkdownRemark.edges
-
-    const postPerPage = 5
-
+    
     allPosts.forEach(({ node, next, previous }) => {
+      
       createPage({
         path: node.fields.slug,
         component: path.resolve("./src/templates/project-post.js"),
@@ -220,7 +181,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    const numPagesProject = Math.ceil(projectPosts.length / postPerPage)
+    const numPagesProject = Math.ceil(allPosts.length / postPerPage)
 
     Array.from({ length: numPagesProject }).forEach((_, index) => {
       createPage({
@@ -235,4 +196,5 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
   })
+
 }

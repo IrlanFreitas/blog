@@ -24,7 +24,6 @@ const BlogList = props => {
       />
       <S.ListWrapper>
         {postList
-          ?.filter(post => post.node.frontmatter.section === "blog")
           ?.map(
             ({
               node: {
