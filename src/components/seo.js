@@ -42,6 +42,10 @@ function SEO({ description, lang, meta, title, image }) {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
+          name: `aplication-name`,
+          content: 'Irlan Freitas Blog'
+        },
+        {
           name: `description`,
           content: metaDescription,
         },
