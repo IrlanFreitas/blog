@@ -6,7 +6,7 @@ image: "/assets/img/mountains.jpg"
 duration: 4
 repo: ""
 publication: ""
-stack: ""
+stack: "java, jsf, pow"
 ---
 
 [The Big Oxmox](http://google.com) advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.

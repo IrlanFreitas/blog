@@ -6,7 +6,7 @@ image: "/assets/img/desert.jpg"
 duration: 2
 repo: ""
 publication: ""
-stack: ""
+stack: "react, flutter, dart, paw"
 ---
 
 Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, [bibendum](http://google.com) eu pulvinar vel, sodales vitae dui.

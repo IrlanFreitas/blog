@@ -40,7 +40,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 const path = require(`path`)
 
-//! Criar páginas do blog
+//! Criar páginas do blog e de projetos
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -137,8 +137,8 @@ exports.createPages = async ({ graphql, actions }) => {
                 title
                 date(locale: "pt-br", formatString: "DD [de] MMMM [de] yyyy")
                 description
-                background
                 image
+                duration
               }
               timeToRead
               fields {

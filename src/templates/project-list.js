@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
-import PostItem from "../components/PostItem"
+import ProjectItem from "../components/ProjectItem"
 import Pagination from "../components/Pagination"
 
 import * as S from "../components/ListWrapper/styled"
@@ -37,15 +37,12 @@ const ProjectList = props => {
                   date,
                   image,
                   duration,
-                  repo,
-                  publication,
-                  stack,
                 },
                 timeToRead,
                 fields: { slug },
               },
             }) => (
-              <PostItem
+              <ProjectItem
                 key={id}
                 slug={slug}
                 date={date}
@@ -53,6 +50,7 @@ const ProjectList = props => {
                 title={title}
                 description={description}
                 image={image}
+                duration={duration}
               />
             )
           )}
