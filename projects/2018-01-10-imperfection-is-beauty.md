@@ -1,5 +1,5 @@
 ---
-date: 2018-01-10
+date: 2018-01-10 05:54:23
 title: Imperfection is beauty, madness is genius
 description: And it's better to be absolutely ridiculous than absolutely boring
 image: "/assets/img/desert.jpg"
