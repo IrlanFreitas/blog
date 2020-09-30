@@ -1,5 +1,5 @@
 ---
-title: Porque eu fiz um blog ?
+title: Por que eu fiz um blog ?
 description: A explicação de uma coisa que ninguém perguntou
 date: 2020-09-29 05:54:23
 image: assets/img/emily-morter-8xaa0f9yqne-unsplash.jpg
