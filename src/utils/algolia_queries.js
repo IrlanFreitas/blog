@@ -14,7 +14,7 @@ const postQuery = `{
             category
             background
             date_timestamp: date
-            date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+            date
             description
           }
           excerpt(pruneLength: 5000)
@@ -36,7 +36,7 @@ const projectQuery = `{
             category
             background
             date_timestamp: date
-            date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+            date
             description
           }
           excerpt(pruneLength: 5000)
