@@ -3,7 +3,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import Home from '../components/Home'
 
-import image from "../images/banner.svg"
+import image from "../images/icon.png"
 
 const IndexPage = () => (
   <Layout>

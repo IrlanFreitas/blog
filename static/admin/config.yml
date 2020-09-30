@@ -18,9 +18,9 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Date", name: "date", widget: "date", format: "DD-MM-YYYY"}
-      - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "Category", name: "category", widget: "select", options: ["dev", "misc"], required: false }
-      - {label: "Background", name: "background", widget: "select", options: [{label: "dev", value: "#B31917"}, {label: "misc", value: "#2DA0C3"}], required: false }
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Category", name: "category", widget: "select", options: ["front", "back"], required: false }
+      - {label: "Background", name: "background", widget: "select", options: [{label: "front", value: "#8A2BE2"}, {label: "back", value: "#2DA0C3"}], required: false }
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "projects" # Used in routes, e.g., /admin/collections/blog
     label: "Projects" # Used in the UI

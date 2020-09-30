@@ -1,14 +1,12 @@
 import React from "react"
 
 import SEO from "../components/seo"
-
-
 import fourOhFour from "../images/404.svg"
 
 import GlobalStyles from "../styles/global"
 import * as S from "../components/NotFound/styled"
 
-import image from "../images/banner.svg"
+import image from "../images/icon.png"
 
 export default function NotFoundPage() {
 
