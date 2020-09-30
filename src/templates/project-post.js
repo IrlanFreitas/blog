@@ -22,12 +22,11 @@ const ProjectPost = ({ data, pageContext }) => {
       <SEO
         title={project.frontmatter.title}
         description={project.frontmatter.description}
-        image={project.frontmatter.image}
+        image={`/${project.frontmatter.image}`}
       />
       <S.ProjectHeader>
-        {project.frontmatter.image && (
-          <S.ProjectImage src={project.frontmatter.image} />
-        )}
+        <S.ProjectImage src={`/${project.frontmatter.image}`} />
+
         <S.ProjectDate>
           <span style={{ display: "inline-block" }}>
             <S.Icon src={Calendar} alt="Ícone de calendário" />
@@ -39,7 +38,7 @@ const ProjectPost = ({ data, pageContext }) => {
           </span>
           <S.ProjectIcon>
             <S.Icon src={Checklist} alt="Ícone de checklist" />
-            {project.frontmatter.duration} meses
+            Duração de {project.frontmatter.duration} meses
           </S.ProjectIcon>
         </S.ProjectDate>
         <S.ProjectDate>

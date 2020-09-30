@@ -3,6 +3,8 @@ title: Porque eu fiz um blog ?
 description: A explicação de uma coisa que ninguém perguntou
 date: 2020-09-29 05:54:23
 image: assets/img/emily-morter-8xaa0f9yqne-unsplash.jpg
+category: exp
+background: "#2DA0C3"
 ---
 Assim, eu sou um cara cheio de ideias, mas com um problema que tem me incomodado muito: a acabativa. Depois de um tempo isso frusta, porque não dá pra viver só iniciando projeto e deixando morrer pelo caminho. Na real, eu meio que sempre tive a vontade de ter um lugar meu pra colocar um pouco de conhecimento, virar auto referência e aprender mais o que tiver vontade por conta do compromisso com a escrita, aprendizagem e finalização dos projetos.
 

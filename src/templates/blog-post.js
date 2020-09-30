@@ -19,10 +19,10 @@ const BlogPost = ({ data, pageContext }) => {
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description}
-        image={post.frontmatter.image}
+        image={`/${post.frontmatter.image}`}
       />
       <S.PostHeader>
-        {post.frontmatter.image && <S.PostImage src={post.frontmatter.image} />}
+        {post.frontmatter.image && <S.PostImage src={`/${post.frontmatter.image}`} />}
         <S.PostDate>
           <span>
             <S.Icon src={Calendar} alt="Ícone de calendário" />

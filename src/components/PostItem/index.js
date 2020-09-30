@@ -1,7 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
 
-import DefaultImagePost from "../../images/banner.svg"
 import Calendar from "../../images/icons/calendar_02.svg"
 import Timer from "../../images/icons/time-left.svg"
 
@@ -17,11 +15,12 @@ const PostItem = ({
   description,
   image,
 }) => {
+
   return (
     <S.PostItemLink to={slug}>
       <S.PostItemWrapper>
         <S.PostItemImage
-          src={image ? image : DefaultImagePost}
+          src={`/${image}`}
           alt={`Image que descreve o post: ${title}`}
         />
 
@@ -45,17 +44,6 @@ const PostItem = ({
       </S.PostItemWrapper>
     </S.PostItemLink>
   )
-}
-
-PostItem.propTypes = {
-  slug: PropTypes.string.isRequired,
-  background: PropTypes.string,
-  category: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  timeToRead: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  image: PropTypes.string,
 }
 
 export default PostItem
