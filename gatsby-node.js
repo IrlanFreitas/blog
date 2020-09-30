@@ -58,11 +58,11 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               frontmatter {
                 title
-                date
                 description
+                date
+                image
                 category
                 background
-                image
               }
               timeToRead
               fields {
@@ -135,10 +135,13 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               frontmatter {
                 title
-                date
                 description
                 image
+                date
                 duration
+                repo
+                publication
+                stack
               }
               timeToRead
               fields {

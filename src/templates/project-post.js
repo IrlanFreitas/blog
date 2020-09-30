@@ -99,7 +99,7 @@ export const query = graphql`
       frontmatter {
         title
         description
-        date(locale: "pt-br", formatString: "DD/MM/yyyy")
+        date(locale: "pt-br", formatString: "DD[/]MM[/]yyyy")
         image
         duration
         repo
