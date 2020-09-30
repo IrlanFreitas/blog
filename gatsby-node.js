@@ -58,7 +58,7 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               frontmatter {
                 title
-                date(locale: "pt-br", formatString: "DD [de] MMMM [de] yyyy")
+                date
                 description
                 category
                 background
@@ -135,7 +135,7 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               frontmatter {
                 title
-                date(locale: "pt-br", formatString: "DD [de] MMMM [de] yyyy")
+                date
                 description
                 image
                 duration
