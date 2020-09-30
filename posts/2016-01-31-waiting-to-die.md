@@ -1,15 +1,35 @@
 ---
-date: 2016-01-10 05:54:23
-title: Imperfection is beauty, madness is genius
-description: And it's better to be absolutely ridiculous than absolutely boring
-category: css
-background: "#24809e"
-section: project
+date: 2016-01-31
+title: Waiting to die
+description: So say goodbye to love and hold your head up high
+category: svg
+background: "#7d669e"
+image: "/assets/img/desert.jpg"
 ---
 
 Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, [bibendum](http://google.com) eu pulvinar vel, sodales vitae dui.
 
 Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.
+
+```jsx
+import React from "react"
+import Profile from "../Profile"
+import SocialLinks from "../SocialLinks"
+import MenuLinks from "../MenuLinks"
+
+import * as S from "./styled"
+
+export default function Sidebar({ children }) {
+  return (
+    <S.SidebarWrapper>
+      <Profile />
+      <SocialLinks />
+      <MenuLinks />
+    </S.SidebarWrapper>
+  )
+}
+
+```
 
 Fusce a metus eu diam varius congue nec nec sapien. Vestibulum orci tortor, sollicitudin ac euismod non, placerat ac augue. Nunc convallis accumsan justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec malesuada vehicula lectus, viverra sodales ipsum gravida nec.
 

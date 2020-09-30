@@ -1,10 +1,12 @@
 ---
-date: 2014-01-31 05:54:23
-title: Waiting to die
-description: So say goodbye to love and hold your head up high
-category: svg
-background: "#7d669e"
-section: blog
+date: 2018-02-02
+title: What makes a man?
+description: Spend his whole life in disguise?
+image: "/assets/img/desert.jpg"
+duration: 4
+repo: ""
+publication: ""
+stack: ""
 ---
 
 Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, [bibendum](http://google.com) eu pulvinar vel, sodales vitae dui.
@@ -19,16 +21,15 @@ import MenuLinks from "../MenuLinks"
 
 import * as S from "./styled"
 
-export default function Sidebar({ children }) {
-  return (
-    <S.SidebarWrapper>
-      <Profile />
-      <SocialLinks />
-      <MenuLinks />
-    </S.SidebarWrapper>
-  )
-}
+const Sidebar = () => (
+  <S.SidebarWrapper>
+    <Profile />
+    <SocialLinks />
+    <MenuLinks />
+  </S.SidebarWrapper>
+)
 
+export default Sidebar
 ```
 
 Fusce a metus eu diam varius congue nec nec sapien. Vestibulum orci tortor, sollicitudin ac euismod non, placerat ac augue. Nunc convallis accumsan justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec malesuada vehicula lectus, viverra sodales ipsum gravida nec.

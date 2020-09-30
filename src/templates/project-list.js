@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
-import PostItem from "../components/PostItem"
+import ProjectItem from "../components/ProjectItem"
 import Pagination from "../components/Pagination"
 
 import * as S from "../components/ListWrapper/styled"
@@ -14,7 +14,9 @@ const ProjectList = props => {
   const isFirst = currentPageProject === 1
   const isLast = currentPageProject === numPagesProject
   const prevPage =
-    currentPageProject - 1 === 1 ? `/project/` : `/project/page/${currentPageProject - 1}`
+    currentPageProject - 1 === 1
+      ? `/project/`
+      : `/project/page/${currentPageProject - 1}`
   const nextPage = `/project/page/${currentPageProject + 1}`
 
   return (
@@ -25,7 +27,6 @@ const ProjectList = props => {
       />
       <S.ListWrapper>
         {postList
-          ?.filter(post => post.node.frontmatter.section === 'project')
           ?.map(
             ({
               node: {
@@ -34,26 +35,22 @@ const ProjectList = props => {
                   title,
                   description,
                   date,
-                  category,
-                  background,
                   image,
-                  section,
-                  duration
+                  duration,
                 },
                 timeToRead,
                 fields: { slug },
               },
             }) => (
-              <PostItem
+              <ProjectItem
                 key={id}
                 slug={slug}
-                background={background}
-                category={category}
                 date={date}
                 timeToRead={timeToRead}
                 title={title}
                 description={description}
                 image={image}
+                duration={duration}
               />
             )
           )}
@@ -76,6 +73,7 @@ export const query = graphql`
       sort: { fields: frontmatter___date, order: DESC }
       limit: $limitProject
       skip: $skipProject
+      filter: { fileAbsolutePath: { regex: "/projects/" } }
     ) {
       edges {
         node {
@@ -84,10 +82,11 @@ export const query = graphql`
             title
             date(locale: "pt-br", formatString: "DD/MM/yyyy")
             description
-            category
-            background
             image
-            section
+            duration
+            repo
+            publication
+            stack
           }
           timeToRead
           fields {

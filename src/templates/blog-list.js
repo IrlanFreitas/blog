@@ -24,7 +24,6 @@ const BlogList = props => {
       />
       <S.ListWrapper>
         {postList
-          ?.filter(post => post.node.frontmatter.section === "blog")
           ?.map(
             ({
               node: {
@@ -35,8 +34,7 @@ const BlogList = props => {
                   date,
                   category,
                   background,
-                  image,
-                  section
+                  image
                 },
                 timeToRead,
                 fields: { slug },
@@ -74,6 +72,7 @@ export const query = graphql`
       sort: { fields: frontmatter___date, order: DESC }
       limit: $limitBlog
       skip: $skipBlog
+      filter: { fileAbsolutePath: { regex: "/posts/"} }
     ) {
       edges {
         node {
@@ -85,7 +84,6 @@ export const query = graphql`
             category
             background
             image
-            section
           }
           timeToRead
           fields {

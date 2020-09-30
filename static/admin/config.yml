@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: IrlanFreitas/pwa-with-react
+  repo: IrlanFreitas/blog
   branch: master
   site_domain: https://irlanfreitas.me/
   
@@ -17,10 +17,23 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-      - {label: "image", name: "image", widget: "image"}
-      - {label: "Category", name: "category", widget: "select", options: ["dev", "misc"], required: false }
-      - {label: "Section", name: "section", widget: "select", options: ["blog", "project"] }
-      - {label: "Duration", name: "duration", widget: "number", required: false}
-      - {label: "Background", name: "background", widget: "select", options: [{label: "dev", value: "#B31917"}, {label: "misc", value: "#2DA0C3"}] }
+      - {label: "Date", name: "date", widget: "date", format: "DD-MM-YYYY"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Category", name: "category", widget: "select", options: ["front", "back"], required: false }
+      - {label: "Background", name: "background", widget: "select", options: [{label: "front", value: "#8A2BE2"}, {label: "back", value: "#2DA0C3"}], required: false }
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "projects" # Used in routes, e.g., /admin/collections/blog
+    label: "Projects" # Used in the UI
+    folder: "projects" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Date", name: "date", widget: "date", format: "DD-MM-YYYY"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Duration In Months", name: "duration", widget: "number", default: 0}
+      - {label: "Repo", name: "repo", widget: "string", default: ""}
+      - {label: "Publication", name: "publication", widget: "string", default: ""}
+      - {label: "Stack", name: "stack", widget: "string", default: ""}
       - {label: "Body", name: "body", widget: "markdown"}

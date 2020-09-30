@@ -1,11 +1,12 @@
 ---
+date: 2020-08-03
 title: Mussum Ipsum o melhor ipsum do mundis
 description: "'Mussum Ipsum, cacilds vidis litro abertis. Não sou faixa preta cumpadi'"
-date: 2020-08-03 08:58:20
-thumbnail: assets/img/mountains.jpg
-category: dev
-background: "#B31917"
-section: project
+image: "/assets/img/mountains.jpg"
+duration: 3
+repo: ""
+publication: ""
+stack: ""
 ---
 
 ## Mussum Ipsum o melhor ipsum do mundis

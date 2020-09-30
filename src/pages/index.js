@@ -3,9 +3,11 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import Home from '../components/Home'
 
+import image from "../images/icon.png"
+
 const IndexPage = () => (
   <Layout>
-    <SEO title="Irlan Freitas" />
+    <SEO title="sobre mim" image={image} />
     <Home />
   </Layout>
 )

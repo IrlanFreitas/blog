@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 import SobreMim from "../../images/icons/icon_sobremim.svg"
 import SobreMimFill from "../../images/icons/icon_sobremim_fill.svg"
@@ -20,9 +20,6 @@ const icons = {
 }
 
 export default function MenuBar() {
-
-  const [blogSearch, setBlogSearch] = useState(false)
-  const [projectSearch, setProjectSearch] = useState(false)
 
   const changeIconOver = (e, flag) => {
     e.currentTarget.children[0].src = icons[flag]
@@ -51,9 +48,9 @@ export default function MenuBar() {
       {/* Ter o mesmo comportamento do spotify, depois de outro click vira uma página de pesquisa */}
       <S.MenuBarItemCentral>
         <S.MenuBarLink
-          to={!projectSearch ? "/project/" : "/search?find=project"}
-          onClick={() => setProjectSearch(!projectSearch) }
+          to={ "/project/" }
           activeClassName="projetos"
+          partiallyActive={true}
           onMouseOver={e => changeIconOver(e, "projetosFill")}
           onFocus={e => changeIconOver(e, "projetosFill")}
           onMouseLeave={e => changeIconLeave(e, "projetos")}
@@ -67,8 +64,8 @@ export default function MenuBar() {
       </S.MenuBarItemCentral>
 
       <S.MenuBarLink
-        to={!blogSearch ? "/blog/" : "/search?find=blog"}
-        onClick={() => setBlogSearch(!blogSearch) }
+        to={"/blog/" }
+
         activeClassName="blog"
         partiallyActive={true}
         onMouseOver={e => changeIconOver(e, "blogFill")}

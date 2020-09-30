@@ -2,7 +2,7 @@ import styled from "styled-components"
 import media from "styled-media-query"
 import { Link } from "gatsby"
 
-export const PostItemLink = styled(Link)`
+export const ProjectItemLink = styled(Link)`
   color: var(--texts);
   display: flex;
   text-decoration: none;
@@ -13,7 +13,7 @@ export const PostItemLink = styled(Link)`
   }
 `
 
-export const PostItemWrapper = styled.section`
+export const ProjectItemWrapper = styled.section`
   align-items: center;
   display: flex;
   padding: 1rem 2rem;
@@ -26,7 +26,7 @@ export const PostItemWrapper = styled.section`
   `}
 `
 
-export const PostItemTag = styled.div`
+export const ProjectItemTag = styled.div`
   align-items: center;
   background: ${props =>
     props.background ? props.background : "var(--highlight)"};
@@ -41,7 +41,7 @@ export const PostItemTag = styled.div`
   transition: 1s all;
 `
 
-export const PostItemInfo = styled.div`
+export const ProjectItemInfo = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 1.5rem;
@@ -52,19 +52,27 @@ export const PostItemInfo = styled.div`
   `}
 `
 
-export const PostItemDetails = styled.time`
+export const ProjectItemDetails = styled.time`
   font-size: 0.75rem;
   margin-top: 10px;
   margin-left: 2px;
 `
 
-export const PostItemDate = styled.div`
+export const ProjectItemDate = styled.div`
   display: inline-block;
   margin-right: 15px;
 `
 
-export const PostItemTimeToRead = styled.div`
+export const ProjectItemTimeToRead = styled.div`
   display: inline-block;
+  margin-right: 15px;
+`
+
+export const ProjectItemDuration = styled.div`
+  display: inline-block;
+  ${media.lessThan("small")`
+  margin-top: 5px;
+  `}
 `
 
 export const Icon = styled.img`
@@ -74,7 +82,7 @@ export const Icon = styled.img`
   margin-right: 5px;
 `
 
-export const PostItemImage = styled.img`
+export const ProjectItemImage = styled.img`
   height: 125px;
   width: 225px;
   margin-right: 10px;
@@ -88,14 +96,14 @@ export const PostItemImage = styled.img`
   `}
 `
 
-export const PostItemTitle = styled.h1`
+export const ProjectItemTitle = styled.h1`
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0.2rem 0 0.5rem;
   color: #da94ff;
 `
 
-export const PostItemDescription = styled.p`
+export const ProjectItemDescription = styled.p`
   font-size: 1rem;
   font-weight: 300;
   line-height: 1;

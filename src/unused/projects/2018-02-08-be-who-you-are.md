@@ -1,10 +1,12 @@
 ---
-date: 2015-02-08 05:54:23
+date: 2018-02-08
 title: Be who you are
 description: Because those who mind don't matter, and those who matter don't mind
-category: dev
-background: "#61728f"
-section: project
+image: "/assets/img/desert.jpg"
+duration: 3
+repo: ""
+publication: ""
+stack: ""
 ---
 
 Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. [Suspendisse](http://google.com) in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.

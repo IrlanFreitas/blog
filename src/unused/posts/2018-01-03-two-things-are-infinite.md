@@ -1,10 +1,10 @@
 ---
-date: 2018-01-05 05:54:23
-title: Lorem Lorem
-description: And I'm lorem sure lorem .
-category: Js
-background: "#111B14"
-section: blog
+date: 2018-01-03
+title: Two things are infinite
+description: And I'm not sure about the universe.
+category: Misc
+background: "#744B13"
+image: "/assets/img/desert.jpg"
 ---
 
 # Lorem ipsum
