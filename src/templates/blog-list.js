@@ -79,7 +79,7 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date
+            date(locale: "pt-br", formatString: "DD[/]MM[/]YYYY")
             description
             category
             background

@@ -38,7 +38,9 @@ const PostItem = ({
               {timeToRead} min de leitura
             </S.PostItemTimeToRead>
           </S.PostItemDetails>
-          <S.PostItemTag background={background}>{category}</S.PostItemTag>
+          {category && (
+            <S.PostItemTag background={background}>{category}</S.PostItemTag>
+          )}
         </S.PostItemInfo>
       </S.PostItemWrapper>
     </S.PostItemLink>
