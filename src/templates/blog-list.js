@@ -20,7 +20,7 @@ const BlogList = props => {
     <Layout>
       <SEO
         title="blog"
-        description={"Blog com posts sobre experiências no desenvolvimento"}
+        description={"Lista com posts sobre experiências no desenvolvimento de software"}
       />
       <S.ListWrapper>
         {postList

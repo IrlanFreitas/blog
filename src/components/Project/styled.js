@@ -94,10 +94,11 @@ export const ProjectStackItem = styled.span`
   min-height: auto;
   width: max-content;
   padding: 4px 9px;
-  margin: 0 5px;
+  margin: 5px;
   text-transform: lowercase;
   transition: 1s all;
   font-weight: 700;
+  display: inline-block;
 `
 
 export const MainContent = styled.section`
