@@ -14,7 +14,7 @@ export const ProjectItemLink = styled(Link)`
 `
 
 export const ProjectItemWrapper = styled.section`
-  align-items: center;
+  align-items: end;
   display: flex;
   padding: 1rem 2rem;
   width: 100%;
