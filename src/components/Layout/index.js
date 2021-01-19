@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import Footer from "../Footer"
 import { TransitionPortal } from "gatsby-plugin-transition-link"
 import * as S from "./styled"
+
 //* Css global definido pelo Styled-Components
 import GlobalStyles from "../../styles/global"
 
