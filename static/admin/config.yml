@@ -2,7 +2,7 @@ backend:
   name: github
   repo: IrlanFreitas/blog
   branch: master
-  site_domain: irlanfreitas.me/
+  site_domain: irlanfreitas.me
 
 publish_mode: editorial_workflow
 media_folder: "static/assets/img"
